@@ -32,6 +32,97 @@
 		}
 	];
 
+	const projects = [
+		{
+			id: '01',
+			name: 'palette-themify',
+			tagline: 'Theme generator · web + TUI + CLI',
+			description:
+				'Web and TUI application that takes an image or an existing theme file to create and customise VS Code / Zed themes. Svelte frontend, Go API — with core palette extraction logic written in Zig.',
+			stack: ['Svelte', 'Go', 'Zig'],
+			url: 'https://github.com/BeratHundurel/palette-themify',
+			snippet: `$ palette-themify ./sunset.jpg --target zed\n→ extracting palette…  [Zig core]\n✓ 8 colors mapped\n✓ theme.json  ·  ready to install`,
+			featured: true
+		},
+		{
+			id: '02',
+			name: 'go-chat',
+			tagline: 'Real-time chat over WebSockets',
+			description:
+				'WhatsApp-style chat application built with Templ, Gorilla WebSockets, and TailwindCSS. Server-side rendered Go templates with live message push over persistent socket connections.',
+			stack: ['Go', 'Templ', 'WebSockets', 'Tailwind'],
+			url: 'https://github.com/BeratHundurel/go-chat',
+			snippet: `$ go run .\n→ WebSocket hub  :8080\n✓ /chat · templ rendered`,
+			featured: false
+		},
+		{
+			id: '03',
+			name: 'microservices',
+			tagline: 'Multi-API microservice architecture',
+			description:
+				'Three-service system exploring microservice patterns — two REST APIs and one Google gRPC service communicating with each other, each owning a distinct domain.',
+			stack: ['Go', 'gRPC', 'REST', 'Docker'],
+			url: 'https://github.com/BeratHundurel/microservices',
+			snippet: `$ docker compose up\n→ api-gateway   :8080\n→ user-service  :8081\n→ order (gRPC)  :50051`,
+			featured: false
+		},
+		{
+			id: '04',
+			name: 'sln-runner',
+			tagline: 'TUI solution runner for .NET projects',
+			description:
+				'Terminal UI that scans a folder for .NET solutions, lets you select one interactively, and launches it with the configured launch settings — all from the keyboard.',
+			stack: ['Rust', 'Ratatui'],
+			url: 'https://github.com/BeratHundurel/sln-runner',
+			snippet: `$ sln-runner ./projects\n→ 6 solutions found\n❯ MyApi  [http]`,
+			featured: false
+		},
+		{
+			id: '05',
+			name: 'go-asteroids',
+			tagline: 'Classic space shooter game',
+			description:
+				'Asteroids-inspired space shooter built with Go and the Ebiten 2D game engine. Difficulty scales over time — more asteroids, faster rotations, tighter margins.',
+			stack: ['Go', 'Ebiten'],
+			url: 'https://github.com/BeratHundurel/go-asteroids',
+			snippet: `$ go run .\n→ window 800×600 · 60 fps\n✓ wave 1 · 12 asteroids spawned`,
+			featured: false
+		},
+		{
+			id: '06',
+			name: 'rust-text-editor',
+			tagline: 'Text editor with syntax highlighting',
+			description:
+				'Minimal text editor in Rust using the Iced GUI framework. Covers essential editing primitives and syntax highlighting, built as a deep dive into Rust ownership and GUI patterns.',
+			stack: ['Rust', 'Iced'],
+			url: 'https://github.com/BeratHundurel/rust-text-editor',
+			snippet: `$ ./text-editor ./main.rs\n→ syntax: rust\n✓ 842 tokens highlighted`,
+			featured: false
+		},
+		{
+			id: '07',
+			name: 'toolkit',
+			tagline: 'Reusable Go helper module',
+			description:
+				'Go package with battle-tested helpers: ReadJSON / WriteJSON / ErrorJSON, CreateDirIfNotExist, file upload utilities, and handy string methods — designed to be dropped into any Go service.',
+			stack: ['Go'],
+			url: 'https://github.com/BeratHundurel/toolkit',
+			snippet: `$ go get github.com/BeratHundurel/toolkit\n→ module resolved\n✓ JSON · Files · Strings`,
+			featured: false
+		},
+		{
+			id: '08',
+			name: 'go-imgui-widgets',
+			tagline: 'Dear ImGui desktop app via Go bindings',
+			description:
+				"Experiments with Dear ImGui's Go bindings to build a lightweight, immediate-mode desktop application — exploring the contrast between retained and immediate-mode GUI paradigms.",
+			stack: ['Go', 'Dear ImGui'],
+			url: 'https://github.com/BeratHundurel/go-imgui-widgets',
+			snippet: `$ go run .\n→ initializing Dear ImGui…\n✓ window ready · 60 fps`,
+			featured: false
+		}
+	];
+
 	const experience = [
 		{
 			company: 'Printomi',
@@ -137,10 +228,49 @@
 	</section>
 
 	<section class="section">
+		<p class="section-eyebrow">Open Source</p>
+		<h2 class="section-title">Personal Projects</h2>
+
+		<div class="projects-grid">
+			{#each projects as project (project.id)}
+				<a
+					class="project-card {project.featured ? 'project-card--featured' : ''}"
+					href={project.url}
+					target="_blank"
+					rel="noreferrer"
+				>
+					<span class="project-num">{project.id}</span>
+
+					<div class="project-inner">
+						<div class="project-meta-row">
+							<div class="project-stack">
+								{#each project.stack as tag (tag)}
+									<span class="stack-badge">{tag}</span>
+								{/each}
+							</div>
+							<span class="project-link-icon">↗</span>
+						</div>
+
+						<h3 class="project-name">{project.name}</h3>
+						<p class="project-tagline">{project.tagline}</p>
+						<p class="project-desc">{project.description}</p>
+
+						{#if project.snippet}
+							<div class="project-snippet">
+								<pre><code>{project.snippet}</code></pre>
+							</div>
+						{/if}
+					</div>
+				</a>
+			{/each}
+		</div>
+	</section>
+
+	<section class="section">
 		<p class="section-eyebrow">Skills</p>
 		<h2 class="section-title">Technical Stack</h2>
 
-		<div class="grid-row">
+		<div class="skills-grid">
 			<div class="flat-card">
 				<div class="skills-list">
 					{#each technicalSkills as skillSection (skillSection.label)}
@@ -164,27 +294,6 @@
 					Deliberately stepping outside the comfort zone of managed runtimes and opinionated
 					frameworks to build a stronger foundation in how software actually works.
 				</p>
-
-				<h3 class="mt">What I Actually Build</h3>
-				<ul class="experience-points mt">
-					<li>
-						VS Code / Zed theme generator from an input image, and core logic written in Zig. <a
-							class="link"
-							href="https://github.com/BeratHundurel/palette-themify"
-							target="_blank"
-							rel="noreferrer">palette-themify</a
-						>
-					</li>
-					<li>
-						Rust API that converts images to WebP while preserving color profiles, and minifies CSS
-						and JS files. <a
-							class="link"
-							href="https://github.com/BeratHundurel/web-optimizer"
-							target="_blank"
-							rel="noreferrer">web-optimizer</a
-						>
-					</li>
-				</ul>
 			</div>
 		</div>
 	</section>
