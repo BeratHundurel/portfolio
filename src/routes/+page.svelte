@@ -231,35 +231,53 @@
 		<p class="section-eyebrow">Open Source</p>
 		<h2 class="section-title">Personal Projects</h2>
 
-		<div class="projects-grid">
-			{#each projects as project (project.id)}
-				<a
-					class="project-card {project.featured ? 'project-card--featured' : ''}"
-					href={project.url}
-					target="_blank"
-					rel="noreferrer"
-				>
-					<span class="project-num">{project.id}</span>
-
-					<div class="project-inner">
-						<div class="project-meta-row">
-							<div class="project-stack">
-								{#each project.stack as tag (tag)}
-									<span class="stack-badge">{tag}</span>
-								{/each}
-							</div>
-							<span class="project-link-icon">↗</span>
+		<a class="project-featured" href={projects[0].url} target="_blank" rel="noreferrer">
+			<div class="pf-top">
+				<div class="pf-text">
+					<div class="pf-meta">
+						<span class="pf-num">{projects[0].id}</span>
+						<div class="project-stack">
+							{#each projects[0].stack as tag (tag)}
+								<span class="stack-badge">{tag}</span>
+							{/each}
 						</div>
+						<span class="project-link-icon">↗</span>
+					</div>
+					<h3 class="pf-name">{projects[0].name}</h3>
+					<p class="project-tagline">{projects[0].tagline}</p>
+					<p class="project-desc">{projects[0].description}</p>
+				</div>
+				<div class="project-snippet">
+					<pre><code>{projects[0].snippet}</code></pre>
+				</div>
+			</div>
+		</a>
 
-						<h3 class="project-name">{project.name}</h3>
-						<p class="project-tagline">{project.tagline}</p>
-						<p class="project-desc">{project.description}</p>
-
-						{#if project.snippet}
-							<div class="project-snippet">
-								<pre><code>{project.snippet}</code></pre>
+		<div class="project-rows">
+			{#each projects.slice(1) as project (project.id)}
+				<a class="project-row" href={project.url} target="_blank" rel="noreferrer">
+					<span class="pr-num">{project.id}</span>
+					<div class="pr-body">
+						<div class="pr-name-row">
+							<span class="pr-name">{project.name}</span>
+							<div class="pr-right">
+								<div class="project-stack">
+									{#each project.stack as tag (tag)}
+										<span class="stack-badge">{tag}</span>
+									{/each}
+								</div>
+								<span class="project-link-icon">↗</span>
 							</div>
-						{/if}
+						</div>
+						<p class="pr-tagline">{project.tagline}</p>
+						<div class="pr-snippet">
+							<div class="pr-snippet-inner">
+								<p class="pr-desc">{project.description}</p>
+								{#if project.snippet}
+									<pre><code>{project.snippet}</code></pre>
+								{/if}
+							</div>
+						</div>
 					</div>
 				</a>
 			{/each}
