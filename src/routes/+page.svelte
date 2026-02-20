@@ -35,7 +35,7 @@
 	const experience = [
 		{
 			company: 'Printomi',
-			role: 'Freelance Full Stack Engineer (Contract)',
+			role: 'Full Stack Engineer (Contract)',
 			period: 'November 2024 — Present',
 			location: 'Istanbul',
 			summary: 'Startup focused on intelligent printing infrastructure and technology solutions.',
