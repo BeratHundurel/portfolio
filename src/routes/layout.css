@@ -178,7 +178,7 @@ p {
 	cursor: pointer;
 	font-family: inherit;
 	font-weight: 500;
-	font-size: 0.86rem;
+	font-size: 0.875rem;
 	padding: 0.5rem 0.9rem;
 	border-radius: 0.5rem;
 	border: 1px solid rgba(140, 165, 220, 0.12);
@@ -282,7 +282,7 @@ p {
 }
 
 .profile-name {
-	font-size: 0.74rem;
+	font-size: 0.75rem;
 	font-weight: 600;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
@@ -458,7 +458,7 @@ p {
 
 .experience-meta,
 .experience-period {
-	font-size: 0.84rem;
+	font-size: 0.82rem;
 	color: rgba(200, 210, 230, 0.45);
 }
 
@@ -507,7 +507,7 @@ p {
 }
 
 .skill-label {
-	font-size: 0.76rem;
+	font-size: 0.75rem;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 	color: rgba(150, 180, 240, 0.6);
@@ -557,7 +557,7 @@ p {
 }
 
 .project-tagline {
-	font-size: 0.76rem;
+	font-size: 0.75rem;
 	text-transform: uppercase;
 	letter-spacing: 0.09em;
 	color: rgba(150, 180, 240, 0.6);
@@ -566,7 +566,7 @@ p {
 }
 
 .project-desc {
-	font-size: 0.88rem;
+	font-size: 0.875rem;
 	line-height: 1.62;
 	color: rgba(200, 210, 230, 0.5);
 	margin: 0.1rem 0 0;
@@ -584,7 +584,7 @@ p {
 
 .project-snippet code {
 	font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;
-	font-size: 0.76rem;
+	font-size: 0.72rem;
 	line-height: 1.75;
 	color: rgba(200, 210, 230, 0.5);
 	white-space: pre;
@@ -825,7 +825,7 @@ p {
 }
 
 .pr-desc {
-	font-size: 0.85rem;
+	font-size: 0.875rem;
 	line-height: 1.6;
 	color: rgba(200, 210, 230, 0.55);
 	margin: 0;
@@ -847,7 +847,7 @@ p {
 
 .pr-snippet-inner code {
 	font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;
-	font-size: 0.73rem;
+	font-size: 0.72rem;
 	line-height: 1.7;
 	color: rgba(200, 210, 230, 0.5);
 	white-space: pre;
@@ -895,7 +895,7 @@ p {
 @media (max-width: 640px) {
 	.btn {
 		font-size: 0.8rem;
-		padding: 0.5rem;
+		padding: 0.5rem 0.6rem;
 	}
 
 	.projects-toggle {
@@ -926,10 +926,6 @@ p {
 		gap: 0.4rem;
 	}
 
-	.section-title {
-		font-size: 1.6rem;
-	}
-
 	.pr-snippet {
 		grid-template-rows: 1fr;
 	}
@@ -957,13 +953,23 @@ p {
 	}
 
 	.project-row {
-		grid-template-columns: 1rem 1fr;
+		grid-template-columns: 0.8rem 1fr;
 	}
 }
 
-@media (max-width: 399px) {
+@media (max-width: 429px) {
+	body {
+		padding: 3rem 1rem 4rem;
+	}
+}
+
+@media (max-width: 374px) {
 	body {
 		padding: 2.5rem 1rem 3rem;
+	}
+
+	.btn {
+		padding: 0.5rem 0.4rem;
 	}
 
 	.project-featured {
@@ -983,12 +989,6 @@ p {
 		font-size: 1.25rem;
 	}
 
-	/* Tighten stack badges so they don't overflow */
-	.stack-badge {
-		font-size: 0.66rem;
-		padding: 0.15rem 0.4rem;
-	}
-
 	/* Stack project row vertically, no column width constraint */
 	.project-row {
 		padding: 0.75rem 0.25rem;
@@ -999,9 +999,5 @@ p {
 	/* Reduce section spacing */
 	.section-title {
 		font-size: 1.4rem;
-	}
-
-	.btn {
-		padding: 0.45rem 0.7rem;
 	}
 }
