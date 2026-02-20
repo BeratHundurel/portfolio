@@ -6,6 +6,8 @@
 		window.open(resumePdf, '_blank', 'noopener,noreferrer');
 	};
 
+	let allExpanded = false;
+
 	const professionalSummary =
 		'Backend-focused Full Stack Engineer, building and operating production APIs and web applications. Experience with message-driven workflows, SQL-based systems, and containerized deployments. Comfortable owning systems end-to-end, from backend services and database design to modern frontend applications.';
 
@@ -62,7 +64,7 @@
 			description:
 				'Three-service system exploring microservice patterns — two REST APIs and one Google gRPC service communicating with each other, each owning a distinct domain.',
 			stack: ['Go', 'gRPC', 'REST', 'Docker'],
-			url: 'https://github.com/BeratHundurel/microservices',
+			url: 'https://github.com/BeratHundurel/order-auth-currency-microservices',
 			snippet: `$ docker compose up\n→ api-gateway   :8080\n→ user-service  :8081\n→ order (gRPC)  :50051`,
 			featured: false
 		},
@@ -71,7 +73,7 @@
 			name: 'sln-runner',
 			tagline: 'TUI solution runner for .NET projects',
 			description:
-				'Terminal UI that scans a folder for .NET solutions, lets you select one interactively, and launches it with the configured launch settings — all from the keyboard.',
+				'Terminal UI that scans a folder for .NET solutions, lets you select one interactively, and launches it with the configured launch settings.',
 			stack: ['Rust', 'Ratatui'],
 			url: 'https://github.com/BeratHundurel/sln-runner',
 			snippet: `$ sln-runner ./projects\n→ 6 solutions found\n❯ MyApi  [http]`,
@@ -93,7 +95,7 @@
 			name: 'rust-text-editor',
 			tagline: 'Text editor with syntax highlighting',
 			description:
-				'Minimal text editor in Rust using the Iced GUI framework. Covers essential editing primitives and syntax highlighting, built as a deep dive into Rust ownership and GUI patterns.',
+				'Minimal text editor in Rust using the Iced GUI framework. Covers essential editing primitives and syntax highlighting, built as a dive into Rust and GUI patterns.',
 			stack: ['Rust', 'Iced'],
 			url: 'https://github.com/BeratHundurel/rust-text-editor',
 			snippet: `$ ./text-editor ./main.rs\n→ syntax: rust\n✓ 842 tokens highlighted`,
@@ -104,9 +106,9 @@
 			name: 'toolkit',
 			tagline: 'Reusable Go helper module',
 			description:
-				'Go package with battle-tested helpers: ReadJSON / WriteJSON / ErrorJSON, CreateDirIfNotExist, file upload utilities, and handy string methods — designed to be dropped into any Go service.',
+				'Go package with helpers: ReadJSON / WriteJSON / ErrorJSON, CreateDirIfNotExist, file upload utilities, and handy string methods — designed to be dropped into any Go service.',
 			stack: ['Go'],
-			url: 'https://github.com/BeratHundurel/toolkit',
+			url: 'https://github.com/BeratHundurel/toolkit-module',
 			snippet: `$ go get github.com/BeratHundurel/toolkit\n→ module resolved\n✓ JSON · Files · Strings`,
 			featured: false
 		},
@@ -115,7 +117,7 @@
 			name: 'go-imgui-widgets',
 			tagline: 'Dear ImGui desktop app via Go bindings',
 			description:
-				"Experiments with Dear ImGui's Go bindings to build a lightweight, immediate-mode desktop application — exploring the contrast between retained and immediate-mode GUI paradigms.",
+				"Experiments with Dear ImGui's Go bindings to build a lightweight, immediate-mode desktop application.",
 			stack: ['Go', 'Dear ImGui'],
 			url: 'https://github.com/BeratHundurel/go-imgui-widgets',
 			snippet: `$ go run .\n→ initializing Dear ImGui…\n✓ window ready · 60 fps`,
@@ -229,7 +231,17 @@
 
 	<section class="section">
 		<p class="section-eyebrow">Open Source</p>
-		<h2 class="section-title">Personal Projects</h2>
+		<div class="projects-header">
+			<h2 class="section-title">Personal Projects</h2>
+			<button
+				class="projects-toggle"
+				type="button"
+				onclick={() => (allExpanded = !allExpanded)}
+				aria-label={allExpanded ? 'Collapse all projects' : 'Expand all projects'}
+			>
+				<span class="toggle-chevron" class:rotated={allExpanded}>▶</span>
+			</button>
+		</div>
 
 		<a class="project-featured" href={projects[0].url} target="_blank" rel="noreferrer">
 			<div class="pf-top">
@@ -253,7 +265,7 @@
 			</div>
 		</a>
 
-		<div class="project-rows">
+		<div class="project-rows" class:expanded={allExpanded}>
 			{#each projects.slice(1) as project (project.id)}
 				<a class="project-row" href={project.url} target="_blank" rel="noreferrer">
 					<span class="pr-num">{project.id}</span>
