@@ -3,45 +3,6 @@
 	import profilePhoto from '$lib/assets/profile.jfif';
 	import resumePdf from '$lib/assets/Berat_Hundurel_FullStack_Engineer.pdf';
 
-	const structuredData = {
-		'@context': 'https://schema.org',
-		'@type': 'Person',
-		name: 'Berat Hündürel',
-		url: 'https://berathundurel.dev',
-		jobTitle: 'Full-Stack Engineer',
-		email: 'mailto:berat.hundurel@hotmail.com',
-		image: '/avatar.jpg',
-		sameAs: [
-			'https://github.com/BeratHundurel',
-			'https://www.linkedin.com/in/berat-h%C3%BCnd%C3%BCrel-1197b9253',
-			'https://x.com/BHundurel'
-		],
-		knowsAbout: [
-			'C#',
-			'Go',
-			'TypeScript',
-			'JavaScript',
-			'.NET',
-			'Svelte',
-			'React',
-			'Next.js',
-			'Docker',
-			'PostgreSQL',
-			'Microsoft SQL Server',
-			'gRPC',
-			'RabbitMQ'
-		],
-		worksFor: {
-			'@type': 'Organization',
-			name: 'Printomi'
-		},
-		address: {
-			'@type': 'PostalAddress',
-			addressLocality: 'Istanbul',
-			addressCountry: 'TR'
-		}
-	};
-
 	const openResume = () => {
 		window.open(resumePdf, '_blank', 'noopener,noreferrer');
 	};
@@ -235,9 +196,6 @@
 	/>
 	<meta name="twitter:image" content="{page.url.origin}/og-image.png" />
 	<meta name="twitter:image:alt" content="Berat Hündürel — Full-Stack Engineer portfolio preview" />
-
-	<!-- JSON-LD Person schema -->
-	{@html `<script type="application/ld+json">${JSON.stringify(structuredData)}</script>`}
 </svelte:head>
 
 <main class="page-shell">
