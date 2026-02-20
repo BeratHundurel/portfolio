@@ -9,18 +9,6 @@
 	const professionalSummary =
 		'Backend-focused Full Stack Engineer, building and operating production APIs and web applications. Experience with message-driven workflows, SQL-based systems, and containerized deployments. Comfortable owning systems end-to-end, from backend services and database design to modern frontend applications.';
 
-	const highlights = [
-		'Developed fault-tolerant REST APIs powering a mobile application used by students, remote workers, and shop owners.',
-		'Implemented RabbitMQ-based message broker integration to ensure reliable printing across locations.',
-		'Implemented cross-stack performance optimizations, improving Web Core Vitals scores by over 50% in high-impact scenarios.'
-	];
-
-	const quickStats = [
-		{ label: 'Web Core Vitals Lift', value: '50%+' },
-		{ label: 'Current Role', value: 'Nov 2024 — Present' },
-		{ label: 'Location', value: 'Istanbul, TR' }
-	];
-
 	const technicalSkills = [
 		{
 			label: 'Languages',
@@ -85,28 +73,24 @@
 </svelte:head>
 
 <main class="page-shell">
-	<section class="hero card">
-		<div class="hero-topline">
-			<div class="eyebrow">FULL-STACK ENGINEER · AVAILABLE FOR NEW OPPORTUNITIES</div>
-			<div class="status-pill">OPEN TO REMOTE / HYBRID</div>
-		</div>
-
+	<section class="hero">
 		<div class="hero-main">
 			<div class="hero-content">
+				<p class="eyebrow">Full-Stack Engineer</p>
 				<h1 class="hero-title">Berat Hündürel</h1>
 				<p class="hero-copy">{professionalSummary}</p>
 
-				<div class="cta-row cta-row--hero">
-					<button class="btn btn-primary" type="button" onclick={openResume}>View Resume</button>
-					<a class="btn btn-secondary" href="mailto:berat.hundurel@hotmail.com">Contact Me</a>
-					<a
-						class="btn btn-secondary"
-						href="https://github.com/BeratHundurel"
-						target="_blank"
-						rel="noreferrer">GitHub</a
+				<div class="action-row" aria-label="Primary actions">
+					<button class="btn btn--primary" type="button" onclick={openResume}>
+						View Resume
+						<span class="btn-arrow">→</span>
+					</button>
+					<a class="btn" href="mailto:berat.hundurel@hotmail.com">Contact</a>
+					<a class="btn" href="https://github.com/BeratHundurel" target="_blank" rel="noreferrer"
+						>GitHub</a
 					>
 					<a
-						class="btn btn-secondary"
+						class="btn"
 						href="https://linkedin.com/in/berat-hündürel"
 						target="_blank"
 						rel="noreferrer">LinkedIn</a
@@ -114,23 +98,22 @@
 				</div>
 			</div>
 
-			<div class="card profile-panel">
+			<div class="profile-panel">
 				<div class="photo-frame">
 					<img class="profile-photo" src={profilePhoto} alt="Portrait of Berat Hündürel" />
 				</div>
-				<p class="profile-heading">Contact</p>
-				<p class="profile-text">berat.hundurel@hotmail.com</p>
-				<p class="profile-heading">Current Role</p>
-				<p class="profile-text">Full Stack Engineer (Contract) · Printomi</p>
+				<div class="profile-info">
+					<p class="profile-name">Available for work</p>
+					<p class="profile-detail">berat.hundurel@hotmail.com</p>
+					<p class="profile-detail">Currently at Printomi</p>
+				</div>
 			</div>
 		</div>
 	</section>
 
-	<section class="card experience-section">
-		<div class="section-topline">
-			<h2>Experience</h2>
-			<p>Sentences taken from CV.</p>
-		</div>
+	<section class="section">
+		<p class="section-eyebrow">Experience</p>
+		<h2 class="section-title">Where I've Worked</h2>
 
 		<div class="experience-list">
 			{#each experience as job (job.company)}
@@ -153,34 +136,42 @@
 		</div>
 	</section>
 
-	<section class="grid-row">
-		<div class="card">
-			<h2>Technical Skills</h2>
-			<div class="skills-list">
-				{#each technicalSkills as section (section.label)}
-					<div class="skill-row">
-						<p class="skill-label">{section.label}:</p>
-						<p>{section.items.join(', ')}</p>
-					</div>
-				{/each}
-			</div>
-		</div>
+	<section class="section">
+		<p class="section-eyebrow">Skills</p>
+		<h2 class="section-title">Technical Stack</h2>
 
-		<div class="card">
-			<h2>Education</h2>
-			<p>Mechatronics Engineering</p>
-			<p>Istanbul Bilgi University, Istanbul</p>
-			<h2>Profiles</h2>
-			<p>
-				<a href="https://github.com/BeratHundurel" target="_blank" rel="noreferrer"
-					>github.com/BeratHundurel</a
-				>
-			</p>
-			<p>
-				<a href="https://linkedin.com/in/berat-hündürel" target="_blank" rel="noreferrer"
-					>linkedin.com/in/berat-hündürel</a
-				>
-			</p>
+		<div class="grid-row">
+			<div class="flat-card">
+				<div class="skills-list">
+					{#each technicalSkills as skillSection (skillSection.label)}
+						<div class="skill-row">
+							<p class="skill-label">{skillSection.label}</p>
+							<p>{skillSection.items.join(', ')}</p>
+						</div>
+					{/each}
+				</div>
+			</div>
+
+			<div class="flat-card">
+				<h3>Education</h3>
+				<p>Mechatronics Engineering</p>
+				<p class="muted">Istanbul Bilgi University, Istanbul</p>
+
+				<h3 class="mt">Profiles</h3>
+				<p>
+					<a class="link" href="https://github.com/BeratHundurel" target="_blank" rel="noreferrer"
+						>github.com/BeratHundurel</a
+					>
+				</p>
+				<p>
+					<a
+						class="link"
+						href="https://linkedin.com/in/berat-hündürel"
+						target="_blank"
+						rel="noreferrer">linkedin.com/in/berat-hündürel</a
+					>
+				</p>
+			</div>
 		</div>
 	</section>
 </main>
