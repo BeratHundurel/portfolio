@@ -153,24 +153,38 @@
 			</div>
 
 			<div class="flat-card">
-				<h3>Education</h3>
-				<p>Mechatronics Engineering</p>
-				<p class="muted">Istanbul Bilgi University, Istanbul</p>
+				<h3>Currently Tinkering With</h3>
+				<p>
+					Exploring systems programming through personal projects in Rust and Zig — understanding
+					memory, and thinking about performance in ways that enterprise C# and Java rarely demand.
+				</p>
 
-				<h3 class="mt">Profiles</h3>
+				<h3 class="mt">Why</h3>
 				<p>
-					<a class="link" href="https://github.com/BeratHundurel" target="_blank" rel="noreferrer"
-						>github.com/BeratHundurel</a
-					>
+					Deliberately stepping outside the comfort zone of managed runtimes and opinionated
+					frameworks to build a stronger foundation in how software actually works.
 				</p>
-				<p>
-					<a
-						class="link"
-						href="https://linkedin.com/in/berat-hündürel"
-						target="_blank"
-						rel="noreferrer">linkedin.com/in/berat-hündürel</a
-					>
-				</p>
+
+				<h3 class="mt">What I Actually Build</h3>
+				<ul class="experience-points mt">
+					<li>
+						VS Code / Zed theme generator from an input image, and core logic written in Zig. <a
+							class="link"
+							href="https://github.com/BeratHundurel/palette-themify"
+							target="_blank"
+							rel="noreferrer">palette-themify</a
+						>
+					</li>
+					<li>
+						Rust API that converts images to WebP while preserving color profiles, and minifies CSS
+						and JS files. <a
+							class="link"
+							href="https://github.com/BeratHundurel/web-optimizer"
+							target="_blank"
+							rel="noreferrer">web-optimizer</a
+						>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</section>

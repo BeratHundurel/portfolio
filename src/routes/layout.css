@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+/* ──────────────────────────────────────
+   GLOBAL & BASE STYLES
+   ────────────────────────────────────── */
+
 :root {
 	font-family: Inter, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
 	line-height: 1.4;
@@ -43,6 +47,10 @@ a {
 	text-decoration: none;
 }
 
+/* ──────────────────────────────────────
+   LAYOUT & CONTAINERS
+   ────────────────────────────────────── */
+
 .page-shell {
 	max-width: 1060px;
 	margin: 0 auto;
@@ -50,21 +58,60 @@ a {
 	gap: 4rem;
 }
 
-/* ── Hero ── */
+/* ──────────────────────────────────────
+   TYPOGRAPHY
+   ────────────────────────────────────── */
 
-.hero {
-	padding: 0;
+h1,
+h2,
+h3,
+p {
+	margin: 0;
 }
 
-.hero-main {
-	display: grid;
-	gap: 1.5rem;
-	align-items: center;
+h1 {
+	font-size: clamp(2.4rem, 6vw, 4.5rem);
+	line-height: 1.02;
+	letter-spacing: -0.035em;
+	font-weight: 700;
+	color: #f0f3fa;
 }
 
-.hero-content {
-	display: grid;
-	gap: 0.65rem;
+h2 {
+	font-size: 1rem;
+	letter-spacing: -0.01em;
+	margin-bottom: 0.6rem;
+	color: #e8ecf4;
+}
+
+h3 {
+	font-size: 0.95rem;
+	letter-spacing: -0.01em;
+	margin-bottom: 0.35rem;
+	color: #e8ecf4;
+}
+
+p {
+	color: rgba(200, 210, 230, 0.6);
+	line-height: 1.65;
+	font-size: 0.9rem;
+}
+
+.muted {
+	color: rgba(200, 210, 230, 0.4);
+}
+
+.mt {
+	margin-top: 1rem;
+}
+
+.link {
+	color: rgba(150, 180, 240, 0.7);
+	transition: color 120ms ease;
+}
+
+.link:hover {
+	color: rgba(150, 180, 240, 0.9);
 }
 
 .eyebrow {
@@ -75,62 +122,9 @@ a {
 	font-weight: 600;
 }
 
-.hero-title {
-	max-width: none;
-}
-
-.hero-copy {
-	max-width: 70ch;
-	font-size: 1rem;
-	line-height: 1.7;
-}
-
-/* ── Profile panel (right side) ── */
-
-.profile-panel {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 0.65rem;
-	justify-self: center;
-}
-
-.photo-frame {
-	width: 150px;
-	height: 150px;
-	border-radius: 50%;
-	overflow: hidden;
-	border: 2px solid rgba(140, 165, 220, 0.15);
-}
-
-.profile-photo {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	display: block;
-}
-
-.profile-info {
-	text-align: center;
-	display: grid;
-	gap: 0.15rem;
-}
-
-.profile-name {
-	font-size: 0.74rem;
-	font-weight: 600;
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
-	color: rgba(150, 180, 240, 0.7);
-}
-
-.profile-detail {
-	font-size: 0.82rem;
-	color: rgba(200, 210, 230, 0.45);
-	line-height: 1.5;
-}
-
-/* ── Buttons ── */
+/* ──────────────────────────────────────
+   BUTTONS
+   ────────────────────────────────────── */
 
 .action-row {
 	display: flex;
@@ -188,61 +182,85 @@ a {
 	transform: translateX(2px);
 }
 
-/* ── Typography ── */
+/* ──────────────────────────────────────
+   HERO SECTION
+   ────────────────────────────────────── */
 
-h1,
-h2,
-h3,
-p {
-	margin: 0;
+.hero {
+	padding: 0;
 }
 
-h1 {
-	font-size: clamp(2.4rem, 6vw, 4.5rem);
-	line-height: 1.02;
-	letter-spacing: -0.035em;
-	font-weight: 700;
-	color: #f0f3fa;
+.hero-main {
+	display: grid;
+	gap: 1.5rem;
+	align-items: center;
 }
 
-h2 {
+.hero-content {
+	display: grid;
+	gap: 0.65rem;
+}
+
+.hero-title {
+	max-width: none;
+}
+
+.hero-copy {
+	max-width: 70ch;
 	font-size: 1rem;
-	letter-spacing: -0.01em;
-	margin-bottom: 0.6rem;
-	color: #e8ecf4;
+	line-height: 1.7;
 }
 
-h3 {
-	font-size: 0.95rem;
-	letter-spacing: -0.01em;
-	margin-bottom: 0.35rem;
-	color: #e8ecf4;
+/* ──────────────────────────────────────
+   PROFILE PANEL
+   ────────────────────────────────────── */
+
+.profile-panel {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.65rem;
+	justify-self: center;
 }
 
-p {
-	color: rgba(200, 210, 230, 0.6);
-	line-height: 1.65;
-	font-size: 0.9rem;
+.photo-frame {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	overflow: hidden;
+	border: 2px solid rgba(140, 165, 220, 0.15);
 }
 
-.muted {
-	color: rgba(200, 210, 230, 0.4);
+.profile-photo {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
 }
 
-.mt {
-	margin-top: 1rem;
+.profile-info {
+	text-align: center;
+	display: grid;
+	gap: 0.15rem;
 }
 
-.link {
+.profile-name {
+	font-size: 0.74rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
 	color: rgba(150, 180, 240, 0.7);
-	transition: color 120ms ease;
 }
 
-.link:hover {
-	color: rgba(150, 180, 240, 0.9);
+.profile-detail {
+	font-size: 0.82rem;
+	color: rgba(200, 210, 230, 0.45);
+	line-height: 1.5;
 }
 
-/* ── Sections ── */
+/* ──────────────────────────────────────
+   SECTIONS
+   ────────────────────────────────────── */
 
 .section {
 	display: grid;
@@ -267,7 +285,9 @@ p {
 	margin-bottom: 0;
 }
 
-/* ── Flat cards ── */
+/* ──────────────────────────────────────
+   CARDS
+   ────────────────────────────────────── */
 
 .flat-card {
 	background: rgba(255, 255, 255, 0.025);
@@ -293,14 +313,18 @@ p {
 	color: rgba(200, 210, 230, 0.7);
 }
 
-/* ── Grid layouts ── */
+/* ──────────────────────────────────────
+   GRID LAYOUTS
+   ────────────────────────────────────── */
 
 .grid-row {
 	display: grid;
 	gap: 0.75rem;
 }
 
-/* ── Experience ── */
+/* ──────────────────────────────────────
+   EXPERIENCE
+   ────────────────────────────────────── */
 
 .experience-list {
 	display: grid;
@@ -374,7 +398,9 @@ p {
 	font-weight: 700;
 }
 
-/* ── Skills ── */
+/* ──────────────────────────────────────
+   SKILLS
+   ────────────────────────────────────── */
 
 .skills-list {
 	display: grid;
@@ -400,7 +426,9 @@ p {
 	font-weight: 600;
 }
 
-/* ── Responsive ── */
+/* ──────────────────────────────────────
+   RESPONSIVE
+   ────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
 	.btn {
