@@ -221,7 +221,6 @@
 						target="_blank"
 						rel="noreferrer">LinkedIn</a
 					>
-					<a class="btn" href="https://x.com/BHundurel" target="_blank" rel="noreferrer">X</a>
 				</div>
 			</div>
 
