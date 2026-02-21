@@ -182,6 +182,8 @@
 	/>
 	<meta property="og:url" content={page.url.href} />
 	<meta property="og:image" content="{page.url.origin}/og-image.png" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
 	<meta property="og:image:alt" content="Berat Hündürel — Full-Stack Engineer portfolio preview" />
 	<meta property="og:locale" content="en_US" />
 
