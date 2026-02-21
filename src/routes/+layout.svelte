@@ -8,7 +8,10 @@
 <svelte:head>
 	<link rel="icon" type="image/jpeg" href="/avatar.jpg" />
 	<link rel="apple-touch-icon" href="/avatar.jpg" />
+	<link rel="canonical" href={page.url.href} />
+	<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 	<title>Berat Hündürel — Full-Stack Engineer</title>
+
 	<meta name="theme-color" content="#0a0f1a" />
 	<meta
 		name="description"
@@ -19,8 +22,6 @@
 		name="keywords"
 		content="Full Stack Engineer, Backend Engineer, C#, Go, Rust, TypeScript, .NET, Svelte, React, Docker, PostgreSQL, Istanbul, Software Engineer"
 	/>
-	<link rel="canonical" href={page.url.href} />
-	<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
 	<!-- Open Graph -->
 	<meta property="og:type" content="website" />
