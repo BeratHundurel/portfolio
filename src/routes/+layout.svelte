@@ -48,6 +48,16 @@
 			}
 		}
 	</script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-WHYLSXQ3BF"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'G-WHYLSXQ3BF');
+	</script>
 </svelte:head>
 
 {@render children()}

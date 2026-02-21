@@ -129,6 +129,7 @@
 	const experience = [
 		{
 			company: 'Printomi',
+			url: 'https://printomi.com',
 			role: 'Full Stack Engineer (Contract)',
 			period: 'November 2024 — Present',
 			location: 'Istanbul',
@@ -144,6 +145,7 @@
 		},
 		{
 			company: 'Webbilir',
+			url: 'https://webbilir.com',
 			role: 'Full Stack Engineer',
 			period: 'June 2023 — January 2026',
 			location: 'Maslak, Istanbul',
@@ -232,7 +234,11 @@
 				</div>
 				<div class="profile-info">
 					<p class="profile-name">Available for work</p>
-					<p class="profile-detail">berat.hundurel@hotmail.com</p>
+					<p class="profile-detail">
+						<a href="mailto:berat.hundurel@hotmail.com" target="_blank" rel="noreferrer"
+							>berat.hundurel@hotmail.com</a
+						>
+					</p>
 					<p class="profile-detail">Currently at Printomi</p>
 				</div>
 			</div>
@@ -247,7 +253,9 @@
 			{#each experience as job (job.company)}
 				<article class="experience-item">
 					<div class="experience-head">
-						<p class="experience-company">{job.company}</p>
+						<p class="experience-company">
+							<a href={job.url} target="_blank" rel="noreferrer">{job.company}</a>
+						</p>
 						<p class="experience-meta">{job.role} · {job.location}</p>
 						<p class="experience-period">{job.period}</p>
 					</div>
