@@ -162,12 +162,12 @@
 	<title>Berat Hündürel — Full-Stack Engineer</title>
 	<meta
 		name="description"
-		content="Backend-focused Full Stack Engineer building production APIs and web apps with C#, Go, TypeScript, .NET, Svelte and Docker. Available for work in Istanbul."
+		content="Backend-focused Full Stack Engineer building production APIs and web apps with C#, Go and TypeScript. Available for work in Istanbul."
 	/>
 	<meta name="author" content="Berat Hündürel" />
 	<meta
 		name="keywords"
-		content="Full Stack Engineer, Backend Engineer, C#, Go, TypeScript, .NET, Svelte, React, Docker, PostgreSQL, Istanbul, Software Engineer"
+		content="Full Stack Engineer, Backend Engineer, C#, Go, Rust, TypeScript, .NET, Svelte, React, Docker, PostgreSQL, Istanbul, Software Engineer"
 	/>
 	<link rel="canonical" href={page.url.href} />
 	<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
@@ -178,7 +178,7 @@
 	<meta property="og:title" content="Berat Hündürel — Full-Stack Engineer" />
 	<meta
 		property="og:description"
-		content="Backend-focused Full Stack Engineer building production APIs and web apps with C#, Go, TypeScript, .NET, Svelte and Docker. Available for work in Istanbul."
+		content="Backend-focused Full Stack Engineer building production APIs and web apps with C#, Go and TypeScript. Available for work in Istanbul."
 	/>
 	<meta property="og:url" content={page.url.href} />
 	<meta property="og:image" content="{page.url.origin}/og-image.png" />
