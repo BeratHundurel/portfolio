@@ -1,12 +1,5 @@
 <script lang="ts">
-	import profilePhoto from '$lib/assets/profile.jfif';
-	import resumePdf from '$lib/assets/Berat_Hundurel_FullStack_Engineer.pdf';
-
-	const openResume = () => {
-		window.open(resumePdf, '_blank', 'noopener,noreferrer');
-	};
-
-	let allExpanded = false;
+	let allExpanded = $state(false);
 
 	const professionalSummary =
 		'Backend-focused Full Stack Engineer, building and operating production APIs and web applications. Experience with message-driven workflows, SQL-based systems, and containerized deployments. Comfortable owning systems end-to-end, from backend services and database design to modern frontend applications.';
@@ -168,10 +161,15 @@
 				<p class="hero-copy">{professionalSummary}</p>
 
 				<div class="action-row" aria-label="Primary actions">
-					<button class="btn btn--primary" type="button" onclick={openResume}>
+					<a
+						class="btn btn--primary"
+						href="/Berat_Hundurel_FullStack_Engineer.pdf"
+						target="_blank"
+						rel="noreferrer"
+					>
 						View Resume
 						<span class="btn-arrow">→</span>
-					</button>
+					</a>
 					<a class="btn" href="mailto:berat.hundurel@hotmail.com">Contact</a>
 					<a class="btn" href="https://github.com/BeratHundurel" target="_blank" rel="noreferrer"
 						>GitHub</a
@@ -187,14 +185,12 @@
 
 			<div class="profile-panel">
 				<div class="photo-frame">
-					<img class="profile-photo" src={profilePhoto} alt="Portrait of Berat Hündürel" />
+					<img class="profile-photo" src="/avatar.jpg" alt="Portrait of Berat Hündürel" />
 				</div>
 				<div class="profile-info">
 					<p class="profile-name">Available for work</p>
 					<p class="profile-detail">
-						<a href="mailto:berat.hundurel@hotmail.com" target="_blank" rel="noreferrer"
-							>berat.hundurel@hotmail.com</a
-						>
+						<a href="mailto:berat.hundurel@hotmail.com">berat.hundurel@hotmail.com</a>
 					</p>
 					<p class="profile-detail">Currently at Printomi</p>
 				</div>

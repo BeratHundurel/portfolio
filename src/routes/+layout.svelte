@@ -54,10 +54,10 @@
 			"@context": "https://schema.org",
 			"@type": "Person",
 			"name": "Berat Hündürel",
-			"url": "https://berathundurel.vercel.app",
+			"url": "https://berathundurel.com",
 			"jobTitle": "Full-Stack Engineer",
-			"email": "mailto:berat.hundurel@hotmail.com",
-			"image": "/avatar.jpg",
+			"email": "berat.hundurel@hotmail.com",
+			"image": "https://berathundurel.com/avatar.jpg",
 			"sameAs": [
 				"https://github.com/BeratHundurel",
 				"https://www.linkedin.com/in/berat-h%C3%BCnd%C3%BCrel-1197b9253",
