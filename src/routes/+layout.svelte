@@ -13,6 +13,7 @@
 	<title>Berat Hündürel — Full-Stack Engineer</title>
 
 	<meta name="theme-color" content="#0a0f1a" />
+	<meta name="title" content="Berat Hündürel — Full-Stack Engineer" />
 	<meta
 		name="description"
 		content="Backend-focused Full Stack Engineer building production APIs and web apps with C#, Go and TypeScript. Available for work in Istanbul."
@@ -20,7 +21,7 @@
 	<meta name="author" content="Berat Hündürel" />
 	<meta
 		name="keywords"
-		content="Full Stack Engineer, Backend Engineer, C#, Go, Rust, TypeScript, .NET, Svelte, React, Docker, PostgreSQL, Istanbul, Software Engineer"
+		content="Berat Hündürel, Full Stack Engineer, Backend Engineer, C#, Go, Rust, TypeScript, .NET, Svelte, React, Docker, PostgreSQL, Istanbul, Software Engineer"
 	/>
 
 	<!-- Open Graph -->
