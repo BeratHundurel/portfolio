@@ -303,6 +303,8 @@ p {
 	display: grid;
 	gap: 1.25rem;
 	overflow-x: hidden;
+	content-visibility: auto;
+	contain-intrinsic-size: 780px;
 }
 
 .section-eyebrow {
