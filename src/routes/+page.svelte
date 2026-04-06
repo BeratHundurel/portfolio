@@ -185,7 +185,11 @@
 
 			<div class="profile-panel">
 				<div class="photo-frame">
-					<img class="profile-photo" src="/avatar.jpg" alt="Portrait of Berat Hündürel" />
+					<enhanced:img
+						class="profile-photo"
+						src="../lib/assets/avatar.jpg"
+						alt="Portrait of Berat Hündürel"
+					/>
 				</div>
 				<div class="profile-info">
 					<p class="profile-name">Available for work</p>
