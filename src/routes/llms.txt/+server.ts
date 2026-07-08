@@ -1,9 +1,9 @@
 import type { RequestHandler } from '@sveltejs/kit';
 
 export const GET: RequestHandler = ({ url }) => {
-	const body = `# Berat Hündürel — Full-Stack Engineer
+	const body = `# Berat Hündürel - Full-Stack Engineer
 
-> Backend-focused Full Stack Engineer building and operating production APIs and web applications. Experience with message-driven workflows, SQL-based systems, and containerized deployments. Based in Istanbul, Turkey.
+> Backend-focused full-stack engineer building production APIs, web applications, internal tools, and open-source GPUI Component improvements. Based in Istanbul, Turkey.
 
 ## About
 
@@ -22,26 +22,35 @@ export const GET: RequestHandler = ({ url }) => {
 - Frontend: React, Next.js, Svelte
 - Databases: Microsoft SQL Server, PostgreSQL
 - Infrastructure: Docker, IIS, GitHub Actions, Testcontainers, CUPS
+- Open Source: 7 merged PRs to longbridge/gpui-component between Apr 24 and Jun 11, 2026
 
 ## Experience
 
-### Printomi (November 2024 — Present)
-Full Stack Engineer (Contract) — Istanbul
+### Printomi (Nov 2024 - Present)
+Full Stack Engineer (Contract) - Istanbul
 Startup focused on intelligent printing infrastructure and technology solutions.
-- Developed fault-tolerant REST APIs powering a mobile application
-- Contributed to Docker + IIS deployments and maintained PostgreSQL in production
-- Built and maintained an internal CRM system
-- Implemented RabbitMQ integration for reliable distributed printing
-- Introduced CI workflows and test automation with Testcontainers
-- Integrated with CUPS and IPP protocols to automate print operations
+- Built REST APIs for mobile users and shop operations
+- Implemented RabbitMQ workflows for distributed print jobs
+- Maintained PostgreSQL, Docker, IIS, CUPS, and IPP integrations
+- Added CI, formatting checks, and Testcontainers-based automation
 
-### Webbilir (June 2023 — January 2026)
-Full Stack Engineer — Maslak, Istanbul
+### Webbilir (Jun 2023 - Jan 2026)
+Full Stack Engineer - Maslak, Istanbul
 Digital agency delivering e-commerce and marketing solutions.
 - Built and maintained production web applications with .NET
-- Improved Web Core Vitals by over 50% in high-impact scenarios
-- Worked with Microsoft SQL Server and Entity Framework Core
-- Mentored junior developers through code reviews and debugging support
+- Improved Core Web Vitals by more than 50% in high-impact scenarios
+- Worked with SQL Server and EF Core using a database-first approach
+- Mentored junior developers through reviews and debugging sessions
+
+## Open Source
+
+- longbridge/gpui-component PR #2457: highlighter empty range style leak fix
+- longbridge/gpui-component PR #2408: native multi-click selection in TextView
+- longbridge/gpui-component PR #2402: GPUI BoxShadow inset compatibility
+- longbridge/gpui-component PR #2400: markdown code block rendering performance
+- longbridge/gpui-component PR #2397: segmented tab indicator flicker fix
+- longbridge/gpui-component PR #2320: popup menu minimum width to avoid resize
+- longbridge/gpui-component PR #2286: SidebarMenuItem click_to_toggle support
 
 ## Projects
 

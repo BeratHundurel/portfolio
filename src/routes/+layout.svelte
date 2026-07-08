@@ -52,13 +52,13 @@
 	<link rel="apple-touch-icon" href={avatar} />
 	<link rel="canonical" href={canonicalUrl} />
 	<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-	<title>Berat Hündürel — Full-Stack Engineer</title>
+	<title>Berat Hündürel - Full-Stack Engineer</title>
 
 	<meta name="theme-color" content="#0a0f1a" />
-	<meta name="title" content="Berat Hündürel — Full-Stack Engineer" />
+	<meta name="title" content="Berat Hündürel - Full-Stack Engineer" />
 	<meta
 		name="description"
-		content="Backend-focused Full Stack Engineer building production APIs and web apps with C#, Go and TypeScript. Available for work in Istanbul."
+		content="Backend-focused full-stack engineer building production APIs, web apps, and open-source GPUI Component contributions with C#, Go, TypeScript, Svelte, and Rust."
 	/>
 	<meta name="author" content="Berat Hündürel" />
 	<meta
@@ -69,29 +69,29 @@
 	<!-- Open Graph -->
 	<meta property="og:type" content="website" />
 	<meta property="og:site_name" content="Berat Hündürel" />
-	<meta property="og:title" content="Berat Hündürel — Full-Stack Engineer" />
+	<meta property="og:title" content="Berat Hündürel - Full-Stack Engineer" />
 	<meta
 		property="og:description"
-		content="Backend-focused Full Stack Engineer building production APIs and web apps with C#, Go and TypeScript. Available for work in Istanbul."
+		content="Backend-focused full-stack engineer building production APIs, web apps, and open-source GPUI Component contributions."
 	/>
 	<meta property="og:url" content={canonicalUrl} />
 	<meta property="og:image" content="https://berathundurel.com/og-image.png" />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
-	<meta property="og:image:alt" content="Berat Hündürel — Full-Stack Engineer portfolio preview" />
+	<meta property="og:image:alt" content="Berat Hündürel - Full-Stack Engineer portfolio preview" />
 	<meta property="og:locale" content="en_US" />
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:site" content="@BHundurel" />
 	<meta name="twitter:creator" content="@BHundurel" />
-	<meta name="twitter:title" content="Berat Hündürel — Full-Stack Engineer" />
+	<meta name="twitter:title" content="Berat Hündürel - Full-Stack Engineer" />
 	<meta
 		name="twitter:description"
-		content="Backend-focused Full Stack Engineer building production APIs and web apps with C#, Go, TypeScript, .NET, Svelte and Docker. Available for work in Istanbul."
+		content="Backend-focused full-stack engineer building production APIs, web apps, and open-source GPUI Component contributions."
 	/>
 	<meta name="twitter:image" content="https://berathundurel.com/og-image.png" />
-	<meta name="twitter:image:alt" content="Berat Hündürel — Full-Stack Engineer portfolio preview" />
+	<meta name="twitter:image:alt" content="Berat Hündürel - Full-Stack Engineer portfolio preview" />
 	<svelte:element this={'script'} type="application/ld+json">{personSchemaJson}</svelte:element>
 </svelte:head>
 

@@ -1,120 +1,175 @@
 <script lang="ts">
-	let allExpanded = $state(false);
+	const heroCopy =
+		'I build production APIs, internal tools, and native-adjacent UI work with Go, .NET, Svelte, and Rust.';
 
-	const professionalSummary =
-		'Backend-focused Full Stack Engineer, building and operating production APIs and web applications. Experience with message-driven workflows, SQL-based systems, and containerized deployments. Comfortable owning systems end-to-end, from backend services and database design to modern frontend applications.';
+	const quickStats = [
+		{
+			label: 'Current work',
+			value: 'Printomi',
+			detail: 'Printing infrastructure and operations tools'
+		},
+		{ label: 'Open source', value: '7 merged PRs', detail: 'gpui-component, Apr-Jun 2026' },
+		{
+			label: 'Main stack',
+			value: 'Go / .NET / Svelte',
+			detail: 'Backend systems with sharp interfaces'
+		}
+	];
 
 	const technicalSkills = [
 		{
 			label: 'Languages',
-			items: ['C#', 'Go', 'TypeScript', 'JavaScript']
+			items: ['C#', 'Go', 'TypeScript', 'JavaScript', 'Rust', 'Zig']
 		},
 		{
 			label: 'Backend',
-			items: ['.NET', 'Gin', 'Chi', 'Fiber']
+			items: ['.NET', 'Gin', 'Chi', 'Fiber', 'RabbitMQ', 'gRPC']
 		},
 		{
 			label: 'Frontend',
-			items: ['React', 'Next.js', 'Svelte']
+			items: ['Svelte', 'React', 'Next.js', 'TailwindCSS']
 		},
 		{
-			label: 'Databases',
-			items: ['Microsoft SQL Server', 'PostgreSQL']
+			label: 'Data',
+			items: ['PostgreSQL', 'Microsoft SQL Server', 'Entity Framework Core']
 		},
 		{
 			label: 'Infrastructure',
-			items: ['Docker', 'IIS', 'GitHub Actions', 'Testcontainers', 'CUPS']
+			items: ['Docker', 'IIS', 'GitHub Actions', 'Testcontainers', 'CUPS', 'IPP']
+		}
+	];
+
+	const gpuiHighlights = [
+		{
+			title: 'TextView selection',
+			detail:
+				'Added double-click word selection, triple-click block selection, select-all behavior, shared word-boundary helpers, and focused tests.',
+			pr: 'PR #2408',
+			url: 'https://github.com/longbridge/gpui-component/pull/2408'
+		},
+		{
+			title: 'Markdown rendering performance',
+			detail:
+				'Cached syntax highlighters and made code block styling lazier to reduce repeated work during markdown rendering.',
+			pr: 'PR #2400',
+			url: 'https://github.com/longbridge/gpui-component/pull/2400'
+		},
+		{
+			title: 'Segmented tabs stability',
+			detail:
+				'Fixed indicator flicker in dynamic segmented tabs and added story coverage for add, remove, and switch behavior.',
+			pr: 'PR #2397',
+			url: 'https://github.com/longbridge/gpui-component/pull/2397'
+		},
+		{
+			title: 'Interaction polish',
+			detail:
+				'Improved sidebar toggling, popup menu sizing, highlighter empty-range handling, and GPUI BoxShadow compatibility.',
+			pr: '4 PRs',
+			url: 'https://github.com/longbridge/gpui-component/pulls?q=author%3ABeratHundurel'
+		}
+	];
+
+	const gpuiPullRequests = [
+		{
+			number: '#2457',
+			title: 'highlighter: prevent empty range style leaks',
+			merged: 'Jun 11, 2026',
+			url: 'https://github.com/longbridge/gpui-component/pull/2457'
+		},
+		{
+			number: '#2408',
+			title: 'text: support native multi-click selection in TextView',
+			merged: 'May 29, 2026',
+			url: 'https://github.com/longbridge/gpui-component/pull/2408'
+		},
+		{
+			number: '#2402',
+			title: 'chore: Bump gpui for BoxShadow inset',
+			merged: 'May 27, 2026',
+			url: 'https://github.com/longbridge/gpui-component/pull/2402'
+		},
+		{
+			number: '#2400',
+			title: 'text: Improve markdown code block rendering performance',
+			merged: 'May 26, 2026',
+			url: 'https://github.com/longbridge/gpui-component/pull/2400'
+		},
+		{
+			number: '#2397',
+			title: 'tabs: Fix segmented indicator flicker',
+			merged: 'May 26, 2026',
+			url: 'https://github.com/longbridge/gpui-component/pull/2397'
+		},
+		{
+			number: '#2320',
+			title: 'menu_story: avoid popup-menu resize on shortcut load',
+			merged: 'Apr 30, 2026',
+			url: 'https://github.com/longbridge/gpui-component/pull/2320'
+		},
+		{
+			number: '#2286',
+			title: 'sidebar: Add click_to_toggle functionality',
+			merged: 'Apr 24, 2026',
+			url: 'https://github.com/longbridge/gpui-component/pull/2286'
 		}
 	];
 
 	const projects = [
 		{
-			id: '01',
 			name: 'palette-themify',
-			tagline: 'Theme generator · web + TUI + CLI',
+			kicker: 'Theme generator for editors',
 			description:
-				'Web and TUI application that takes an image or an existing theme file to create and customise VS Code / Zed themes. Svelte frontend, Go API — with core palette extraction logic written in Zig.',
+				'Web and TUI application that turns an image or theme file into VS Code and Zed themes. Svelte frontend, Go API, Zig palette extraction core.',
 			stack: ['Svelte', 'Go', 'Zig'],
 			url: 'https://github.com/BeratHundurel/palette-themify',
-			snippet: `$ palette-themify ./sunset.jpg --target zed\n→ extracting palette…  [Zig core]\n✓ 8 colors mapped\n✓ theme.json  ·  ready to install`,
+			snippet: `$ palette-themify ./sunset.jpg --target zed\n> extracting palette [zig core]\nok 8 colors mapped\nok theme.json ready`,
 			featured: true
 		},
 		{
-			id: '02',
 			name: 'go-chat',
-			tagline: 'Real-time chat over WebSockets',
+			kicker: 'Real-time WebSocket chat',
 			description:
-				'WhatsApp-style chat application built with Templ, Gorilla WebSockets, and TailwindCSS. Server-side rendered Go templates with live message push over persistent socket connections.',
-			stack: ['Go', 'Templ', 'WebSockets', 'Tailwind'],
+				'WhatsApp-style chat application built with Templ, Gorilla WebSockets, and TailwindCSS, with server-rendered views and live message push.',
+			stack: ['Go', 'Templ', 'WebSockets'],
 			url: 'https://github.com/BeratHundurel/go-chat',
-			snippet: `$ go run .\n→ WebSocket hub  :8080\n✓ /chat · templ rendered`,
-			featured: false
+			snippet: `$ go run .\n> websocket hub :8080\nok /chat rendered`
 		},
 		{
-			id: '03',
 			name: 'microservices',
-			tagline: 'Multi-API microservice architecture',
+			kicker: 'Multi-API service architecture',
 			description:
-				'Three-service system exploring microservice patterns — two REST APIs and one Google gRPC service communicating with each other, each owning a distinct domain.',
+				'Three-service system exploring REST and gRPC boundaries, service ownership, and Docker-based local orchestration.',
 			stack: ['Go', 'gRPC', 'REST', 'Docker'],
 			url: 'https://github.com/BeratHundurel/order-auth-currency-microservices',
-			snippet: `$ docker compose up\n→ api-gateway   :8080\n→ user-service  :8081\n→ order (gRPC)  :50051`,
-			featured: false
+			snippet: `$ docker compose up\n> api-gateway :8080\n> order service :50051`
 		},
 		{
-			id: '04',
 			name: 'sln-runner',
-			tagline: 'TUI solution runner for .NET projects',
+			kicker: '.NET solution launcher',
 			description:
-				'Terminal UI that scans a folder for .NET solutions, lets you select one interactively, and launches it with the configured launch settings.',
+				'Terminal UI that scans folders for .NET solutions, lets you pick one interactively, and launches it with configured settings.',
 			stack: ['Rust', 'Ratatui'],
 			url: 'https://github.com/BeratHundurel/sln-runner',
-			snippet: `$ sln-runner ./projects\n→ 6 solutions found\n❯ MyApi  [http]`,
-			featured: false
+			snippet: `$ sln-runner ./projects\n> 6 solutions found\n> MyApi [http]`
 		},
 		{
-			id: '05',
 			name: 'go-asteroids',
-			tagline: 'Classic space shooter game',
+			kicker: '2D game loop in Go',
 			description:
-				'Asteroids-inspired space shooter built with Go and the Ebiten 2D game engine. Difficulty scales over time — more asteroids, faster rotations, tighter margins.',
+				'Asteroids-inspired shooter built with Ebiten. The loop scales difficulty over time with tighter motion and collision margins.',
 			stack: ['Go', 'Ebiten'],
 			url: 'https://github.com/BeratHundurel/go-asteroids',
-			snippet: `$ go run .\n→ window 800×600 · 60 fps\n✓ wave 1 · 12 asteroids spawned`,
-			featured: false
+			snippet: `$ go run .\n> window 800x600 at 60 fps\nok wave 1`
 		},
 		{
-			id: '06',
 			name: 'rust-text-editor',
-			tagline: 'Text editor with syntax highlighting',
+			kicker: 'Desktop editor experiment',
 			description:
-				'Minimal text editor in Rust using the Iced GUI framework. Covers essential editing primitives and syntax highlighting, built as a dive into Rust and GUI patterns.',
+				'Minimal Rust text editor using Iced, covering core editing primitives and syntax highlighting.',
 			stack: ['Rust', 'Iced'],
 			url: 'https://github.com/BeratHundurel/rust-text-editor',
-			snippet: `$ ./text-editor ./main.rs\n→ syntax: rust\n✓ 842 tokens highlighted`,
-			featured: false
-		},
-		{
-			id: '07',
-			name: 'toolkit',
-			tagline: 'Reusable Go helper module',
-			description:
-				'Go package with helpers: ReadJSON / WriteJSON / ErrorJSON, CreateDirIfNotExist, file upload utilities, and handy string methods — designed to be dropped into any Go service.',
-			stack: ['Go'],
-			url: 'https://github.com/BeratHundurel/toolkit-module',
-			snippet: `$ go get github.com/BeratHundurel/toolkit\n→ module resolved\n✓ JSON · Files · Strings`,
-			featured: false
-		},
-		{
-			id: '08',
-			name: 'go-imgui-widgets',
-			tagline: 'Dear ImGui desktop app via Go bindings',
-			description:
-				"Experiments with Dear ImGui's Go bindings to build a lightweight, immediate-mode desktop application.",
-			stack: ['Go', 'Dear ImGui'],
-			url: 'https://github.com/BeratHundurel/go-imgui-widgets',
-			snippet: `$ go run .\n→ initializing Dear ImGui…\n✓ window ready · 60 fps`,
-			featured: false
+			snippet: `$ ./text-editor ./main.rs\n> syntax rust\nok tokens highlighted`
 		}
 	];
 
@@ -122,106 +177,134 @@
 		{
 			company: 'Printomi',
 			url: 'https://printomi.com',
-			role: 'Full Stack Engineer (Contract)',
-			period: 'November 2024 — Present',
+			role: 'Full Stack Engineer, Contract',
+			period: 'Nov 2024 - Present',
 			location: 'Istanbul',
 			summary: 'Startup focused on intelligent printing infrastructure and technology solutions.',
 			items: [
-				'Developed fault-tolerant REST APIs powering a mobile application used by students, remote workers, and shop owners.',
-				'Contributed to Docker + IIS deployments and maintained PostgreSQL in production.',
-				'Built and maintained an internal CRM system for content and data operations.',
-				'Implemented RabbitMQ integration for reliable distributed printing across locations.',
-				'Introduced CI workflows, formatting enforcement, and test automation with Testcontainers.',
-				'Integrated with CUPS and IPP protocols to automate print operations.'
+				'Built REST APIs for mobile users and shop operations.',
+				'Implemented RabbitMQ workflows for distributed print jobs.',
+				'Maintained PostgreSQL, Docker, IIS, CUPS, and IPP integrations.',
+				'Added CI, formatting checks, and Testcontainers-based automation.'
 			]
 		},
 		{
 			company: 'Webbilir',
 			url: 'https://webbilir.com',
 			role: 'Full Stack Engineer',
-			period: 'June 2023 — January 2026',
+			period: 'Jun 2023 - Jan 2026',
 			location: 'Maslak, Istanbul',
 			summary: 'Digital agency delivering e-commerce and marketing solutions.',
 			items: [
 				'Built and maintained production web applications with .NET.',
-				'Implemented cross-stack performance optimizations and improved Web Core Vitals by over 50% in high-impact scenarios.',
-				'Worked with Microsoft SQL Server and Entity Framework Core using a database-first approach.',
-				'Mentored junior developers through code reviews and debugging support.'
+				'Improved Core Web Vitals by more than 50% in high-impact scenarios.',
+				'Worked with SQL Server and EF Core using a database-first approach.',
+				'Mentored junior developers through reviews and debugging sessions.'
 			]
 		}
 	];
 </script>
 
-<main class="page-shell">
-	<section class="hero">
-		<div class="hero-main">
-			<div class="hero-content">
-				<p class="eyebrow">Full-Stack Engineer</p>
-				<h1 class="hero-title">Berat Hündürel</h1>
-				<p class="hero-copy">{professionalSummary}</p>
+<a class="skip-link" href="#main">Skip to content</a>
 
-				<div class="action-row" aria-label="Primary actions">
-					<a
-						class="btn btn--primary"
-						href="/Berat_Hundurel_FullStack_Engineer.pdf"
-						target="_blank"
-						rel="noreferrer"
-					>
-						View Resume
-						<span class="btn-arrow">→</span>
-					</a>
-					<a class="btn" href="mailto:berat.hundurel@hotmail.com">Contact</a>
-					<a class="btn" href="https://github.com/BeratHundurel" target="_blank" rel="noreferrer"
-						>GitHub</a
-					>
-					<a
-						class="btn"
-						href="https://www.linkedin.com/in/berat-h%C3%BCnd%C3%BCrel-1197b9253"
-						target="_blank"
-						rel="noreferrer">LinkedIn</a
-					>
-				</div>
-			</div>
+<header class="site-nav" aria-label="Primary navigation">
+	<a class="brand-lockup" href="#main" aria-label="Berat Hündürel home">
+		<span class="brand-mark">BH</span>
+		<span class="brand-text">Berat Hündürel</span>
+	</a>
+	<nav class="nav-links" aria-label="Sections">
+		<a href="#experience">Experience</a>
+		<a href="#open-source">Open source</a>
+		<a href="#projects">Projects</a>
+		<a href="#skills">Skills</a>
+	</nav>
+	<a class="nav-cta" href="mailto:berat.hundurel@hotmail.com">Email</a>
+</header>
 
-			<div class="profile-panel">
-				<div class="photo-frame">
-					<enhanced:img
-						class="profile-photo"
-						src="../lib/assets/avatar.jpg"
-						alt="Portrait of Berat Hündürel"
-					/>
-				</div>
-				<div class="profile-info">
-					<p class="profile-name">Available for work</p>
-					<p class="profile-detail">
-						<a href="mailto:berat.hundurel@hotmail.com">berat.hundurel@hotmail.com</a>
-					</p>
-					<p class="profile-detail">Currently at Printomi</p>
-				</div>
+<main id="main" class="page-shell">
+	<section class="hero" aria-labelledby="hero-title">
+		<div class="hero-copy-block">
+			<p class="role-line">Full-stack engineer</p>
+			<h1 id="hero-title">Production APIs. Polished UI.</h1>
+			<p class="hero-copy">{heroCopy}</p>
+			<div class="hero-actions" aria-label="Primary actions">
+				<a
+					class="button button-primary"
+					href="/Berat_Hundurel_FullStack_Engineer.pdf"
+					target="_blank"
+					rel="noreferrer"
+				>
+					Resume
+				</a>
+				<a class="button" href="https://github.com/BeratHundurel" target="_blank" rel="noreferrer">
+					GitHub
+				</a>
 			</div>
 		</div>
+
+		<aside class="hero-profile" aria-label="Profile summary">
+			<div class="portrait-frame">
+				<enhanced:img
+					class="portrait"
+					src="../lib/assets/avatar-retina.jpg"
+					alt="Portrait of Berat Hündürel"
+				/>
+			</div>
+			<div class="profile-card">
+				<p class="profile-name">Berat Hündürel</p>
+				<p class="profile-detail">Currently building production software at Printomi.</p>
+				<a
+					class="profile-link"
+					href="https://www.linkedin.com/in/berat-h%C3%BCnd%C3%BCrel-1197b9253"
+					target="_blank"
+					rel="noreferrer"
+				>
+					LinkedIn
+				</a>
+			</div>
+		</aside>
 	</section>
 
-	<section class="section">
-		<p class="section-eyebrow">Experience</p>
-		<h2 class="section-title">Where I've Worked</h2>
+	<section class="signal-strip" aria-label="Portfolio highlights">
+		{#each quickStats as stat (stat.label)}
+			<article class="signal-card">
+				<p class="signal-label">{stat.label}</p>
+				<strong>{stat.value}</strong>
+				<span>{stat.detail}</span>
+			</article>
+		{/each}
+	</section>
 
-		<div class="experience-list">
+	<section
+		id="experience"
+		class="section-block experience-section"
+		aria-labelledby="experience-title"
+	>
+		<div class="section-intro">
+			<h2 id="experience-title">Experience that spans systems and surfaces.</h2>
+			<p>
+				I work closest to backend services, but I stay accountable for the interfaces, operations,
+				and deployment paths around them.
+			</p>
+		</div>
+
+		<div class="experience-stack">
 			{#each experience as job (job.company)}
-				<article class="experience-item">
-					<div class="experience-head">
-						<p class="experience-company">
-							<a href={job.url} target="_blank" rel="noreferrer">{job.company}</a>
-						</p>
-						<p class="experience-meta">{job.role} · {job.location}</p>
-						<p class="experience-period">{job.period}</p>
+				<article class="experience-card">
+					<div class="experience-heading">
+						<div>
+							<h3><a href={job.url} target="_blank" rel="noreferrer">{job.company}</a></h3>
+							<p>{job.summary}</p>
+						</div>
+						<div class="experience-meta">
+							<span>{job.role}</span>
+							<span>{job.period}</span>
+							<span>{job.location}</span>
+						</div>
 					</div>
-
-					<p class="experience-summary">{job.summary}</p>
-
-					<ul class="experience-points">
-						{#each job.items as point (point)}
-							<li>{point}</li>
+					<ul class="work-points">
+						{#each job.items as item (item)}
+							<li>{item}</li>
 						{/each}
 					</ul>
 				</article>
@@ -229,126 +312,125 @@
 		</div>
 	</section>
 
-	<section class="section">
-		<p class="section-eyebrow">Open Source</p>
-		<div class="projects-header">
-			<h2 class="section-title">Personal Projects</h2>
-			<button
-				class="projects-toggle"
-				type="button"
-				onclick={() => (allExpanded = !allExpanded)}
-				aria-label={allExpanded ? 'Collapse all projects' : 'Expand all projects'}
-			>
-				<span class="toggle-chevron" class:rotated={allExpanded}>▶</span>
-			</button>
+	<section id="open-source" class="section-block oss-section" aria-labelledby="oss-title">
+		<div class="section-intro">
+			<h2 id="oss-title">Open-source work in GPUI Component.</h2>
+			<p>
+				I contributed merged improvements to Longbridge's Rust component library for GPUI-powered
+				cross-platform desktop applications.
+			</p>
 		</div>
 
-		<a class="project-featured" href={projects[0].url} target="_blank" rel="noreferrer">
-			<div class="pf-top">
-				<div class="pf-text">
-					<div class="pf-meta">
-						<span class="pf-num">{projects[0].id}</span>
-						<div class="project-stack">
-							{#each projects[0].stack as tag (tag)}
-								<span class="stack-badge">{tag}</span>
-							{/each}
-						</div>
-						<span class="project-link-icon">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="currentColor"
-								stroke-width="5.12"
-								viewBox="0 0 512 512"
-							>
-								<path
-									fill="currentColor"
-									d="M511.894,19.228c-0.031-0.316-0.09-0.622-0.135-0.933c-0.054-0.377-0.098-0.755-0.172-1.13 c-0.071-0.358-0.169-0.705-0.258-1.056c-0.081-0.323-0.152-0.648-0.249-0.968c-0.104-0.345-0.234-0.678-0.355-1.015 c-0.115-0.319-0.22-0.641-0.35-0.956c-0.13-0.315-0.284-0.616-0.428-0.923c-0.153-0.324-0.297-0.651-0.467-0.969 c-0.158-0.294-0.337-0.574-0.508-0.86c-0.186-0.311-0.362-0.626-0.565-0.93c-0.211-0.316-0.447-0.613-0.674-0.917 c-0.19-0.253-0.366-0.513-0.568-0.76c-0.443-0.539-0.909-1.058-1.402-1.551c-0.004-0.004-0.007-0.008-0.011-0.012 c-0.004-0.004-0.008-0.006-0.011-0.01c-0.494-0.493-1.012-0.96-1.552-1.403c-0.247-0.203-0.507-0.379-0.761-0.569 c-0.303-0.227-0.6-0.462-0.916-0.673c-0.304-0.203-0.619-0.379-0.931-0.565c-0.286-0.171-0.565-0.35-0.859-0.508 c-0.318-0.17-0.644-0.314-0.969-0.467c-0.307-0.145-0.609-0.298-0.923-0.429c-0.315-0.13-0.637-0.236-0.957-0.35 c-0.337-0.121-0.669-0.25-1.013-0.354c-0.32-0.097-0.646-0.168-0.969-0.249c-0.351-0.089-0.698-0.187-1.055-0.258 c-0.375-0.074-0.753-0.119-1.13-0.173c-0.311-0.044-0.617-0.104-0.933-0.135C492.072,0.037,491.37,0,490.667,0H213.333 C201.551,0,192,9.551,192,21.333c0,11.782,9.551,21.333,21.333,21.333h225.83L6.248,475.582c-8.331,8.331-8.331,21.839,0,30.17 c8.331,8.331,21.839,8.331,30.17,0L469.333,72.837v225.83c0,11.782,9.551,21.333,21.333,21.333S512,310.449,512,298.667V21.335 C512,20.631,511.963,19.928,511.894,19.228z"
-								/>
-							</svg>
-						</span>
-					</div>
-					<h3 class="pf-name">{projects[0].name}</h3>
-					<p class="project-tagline">{projects[0].tagline}</p>
-					<p class="project-desc">{projects[0].description}</p>
-				</div>
-				<div class="project-snippet">
-					<pre><code>{projects[0].snippet}</code></pre>
+		<div class="oss-layout">
+			<div class="oss-visual">
+				<a href="https://github.com/longbridge/gpui-component" target="_blank" rel="noreferrer">
+					<img
+						src="/gpui-component-og.png"
+						width="1200"
+						height="600"
+						loading="eager"
+						alt="GitHub preview for the longbridge gpui-component repository"
+					/>
+				</a>
+				<div class="oss-caption">
+					<p>gpui-component</p>
+					<span>Rust components for native desktop applications using GPUI.</span>
 				</div>
 			</div>
-		</a>
 
-		<div class="project-rows" class:expanded={allExpanded}>
-			{#each projects.slice(1) as project (project.id)}
-				<a class="project-row" href={project.url} target="_blank" rel="noreferrer">
-					<span class="pr-num">{project.id}</span>
-					<div class="pr-body">
-						<div class="pr-name-row">
-							<span class="pr-name">{project.name}</span>
-							<div class="pr-right">
-								<div class="project-stack">
-									{#each project.stack as tag (tag)}
-										<span class="stack-badge">{tag}</span>
-									{/each}
-								</div>
-								<span class="project-link-icon">
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 512 512"
-										fill="currentColor"
-										stroke-width="5.12"
-									>
-										<path
-											fill="currentColor"
-											d="M511.894,19.228c-0.031-0.316-0.09-0.622-0.135-0.933c-0.054-0.377-0.098-0.755-0.172-1.13 c-0.071-0.358-0.169-0.705-0.258-1.056c-0.081-0.323-0.152-0.648-0.249-0.968c-0.104-0.345-0.234-0.678-0.355-1.015 c-0.115-0.319-0.22-0.641-0.35-0.956c-0.13-0.315-0.284-0.616-0.428-0.923c-0.153-0.324-0.297-0.651-0.467-0.969 c-0.158-0.294-0.337-0.574-0.508-0.86c-0.186-0.311-0.362-0.626-0.565-0.93c-0.211-0.316-0.447-0.613-0.674-0.917 c-0.19-0.253-0.366-0.513-0.568-0.76c-0.443-0.539-0.909-1.058-1.402-1.551c-0.004-0.004-0.007-0.008-0.011-0.012 c-0.004-0.004-0.008-0.006-0.011-0.01c-0.494-0.493-1.012-0.96-1.552-1.403c-0.247-0.203-0.507-0.379-0.761-0.569 c-0.303-0.227-0.6-0.462-0.916-0.673c-0.304-0.203-0.619-0.379-0.931-0.565c-0.286-0.171-0.565-0.35-0.859-0.508 c-0.318-0.17-0.644-0.314-0.969-0.467c-0.307-0.145-0.609-0.298-0.923-0.429c-0.315-0.13-0.637-0.236-0.957-0.35 c-0.337-0.121-0.669-0.25-1.013-0.354c-0.32-0.097-0.646-0.168-0.969-0.249c-0.351-0.089-0.698-0.187-1.055-0.258 c-0.375-0.074-0.753-0.119-1.13-0.173c-0.311-0.044-0.617-0.104-0.933-0.135C492.072,0.037,491.37,0,490.667,0H213.333 C201.551,0,192,9.551,192,21.333c0,11.782,9.551,21.333,21.333,21.333h225.83L6.248,475.582c-8.331,8.331-8.331,21.839,0,30.17 c8.331,8.331,21.839,8.331,30.17,0L469.333,72.837v225.83c0,11.782,9.551,21.333,21.333,21.333S512,310.449,512,298.667V21.335 C512,20.631,511.963,19.928,511.894,19.228z"
-										/>
-									</svg>
-								</span>
-							</div>
+			<div class="oss-highlights">
+				{#each gpuiHighlights as item (item.title)}
+					<a class="oss-card" href={item.url} target="_blank" rel="noreferrer">
+						<div>
+							<h3>{item.title}</h3>
+							<p>{item.detail}</p>
 						</div>
-						<p class="pr-tagline">{project.tagline}</p>
-						<div class="pr-snippet">
-							<div class="pr-snippet-inner">
-								<p class="pr-desc">{project.description}</p>
-								{#if project.snippet}
-									<pre><code>{project.snippet}</code></pre>
-								{/if}
-							</div>
-						</div>
-					</div>
+						<span>{item.pr}</span>
+					</a>
+				{/each}
+			</div>
+		</div>
+
+		<div class="pr-list" aria-label="Merged gpui-component pull requests">
+			{#each gpuiPullRequests as pr (pr.number)}
+				<a class="pr-row" href={pr.url} target="_blank" rel="noreferrer">
+					<span class="pr-number">{pr.number}</span>
+					<span class="pr-title">{pr.title}</span>
+					<span class="pr-date">{pr.merged}</span>
 				</a>
 			{/each}
 		</div>
 	</section>
 
-	<section class="section">
-		<p class="section-eyebrow">Skills</p>
-		<h2 class="section-title">Technical Stack</h2>
+	<section id="projects" class="section-block projects-section" aria-labelledby="projects-title">
+		<div class="section-intro">
+			<h2 id="projects-title">Selected projects.</h2>
+			<p>
+				Personal work where I test small systems, editor tooling, terminal interfaces, desktop UI,
+				and Go service patterns.
+			</p>
+		</div>
+
+		<div class="projects-grid">
+			{#each projects as project (project.name)}
+				<a
+					class="project-card"
+					class:featured={project.featured}
+					href={project.url}
+					target="_blank"
+					rel="noreferrer"
+				>
+					<div class="project-main">
+						<p class="project-kicker">{project.kicker}</p>
+						<h3>{project.name}</h3>
+						<p>{project.description}</p>
+						<div class="tag-row" aria-label={`${project.name} stack`}>
+							{#each project.stack as tag (tag)}
+								<span>{tag}</span>
+							{/each}
+						</div>
+					</div>
+					<pre><code>{project.snippet}</code></pre>
+				</a>
+			{/each}
+		</div>
+	</section>
+
+	<section id="skills" class="section-block skills-section" aria-labelledby="skills-title">
+		<div class="section-intro compact">
+			<h2 id="skills-title">Tools I reach for.</h2>
+			<p>
+				My default lane is backend-heavy full-stack work, with enough frontend and infrastructure
+				ownership to keep delivery practical.
+			</p>
+		</div>
 
 		<div class="skills-grid">
-			<div class="flat-card">
-				<div class="skills-list">
-					{#each technicalSkills as skillSection (skillSection.label)}
-						<div class="skill-row">
-							<p class="skill-label">{skillSection.label}</p>
-							<p>{skillSection.items.join(', ')}</p>
-						</div>
-					{/each}
-				</div>
-			</div>
-
-			<div class="flat-card">
-				<h3>Currently Tinkering With</h3>
-				<p>
-					Exploring systems programming through personal projects in Rust and Zig — understanding
-					memory, and thinking about performance in ways that enterprise C# and Java rarely demand.
-				</p>
-
-				<h3 class="mt">Why</h3>
-				<p>
-					Deliberately stepping outside the comfort zone of managed runtimes and opinionated
-					frameworks to build a stronger foundation in how software actually works.
-				</p>
-			</div>
+			{#each technicalSkills as skillGroup (skillGroup.label)}
+				<article class="skill-card">
+					<h3>{skillGroup.label}</h3>
+					<div class="tag-row">
+						{#each skillGroup.items as skill (skill)}
+							<span>{skill}</span>
+						{/each}
+					</div>
+				</article>
+			{/each}
 		</div>
 	</section>
 </main>
+
+<footer class="site-footer">
+	<p>Available for backend and full-stack engineering work.</p>
+	<div class="footer-links">
+		<a href="mailto:berat.hundurel@hotmail.com">Email</a>
+		<a href="https://github.com/BeratHundurel" target="_blank" rel="noreferrer">GitHub</a>
+		<a
+			href="https://www.linkedin.com/in/berat-h%C3%BCnd%C3%BCrel-1197b9253"
+			target="_blank"
+			rel="noreferrer"
+		>
+			LinkedIn
+		</a>
+	</div>
+</footer>

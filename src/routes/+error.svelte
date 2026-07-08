@@ -5,79 +5,79 @@
 		400: {
 			title: 'Bad Request',
 			snippet: `$ request --verify
-→ parsing payload...
-✗ malformed syntax
-✗ the server cannot process this request`
+> parsing payload...
+x malformed syntax
+x the server cannot process this request`
 		},
 		401: {
 			title: 'Unauthorized',
 			snippet: `$ auth --check
-→ verifying credentials...
-✗ authentication required
-✗ access denied`
+> verifying credentials...
+x authentication required
+x access denied`
 		},
 		403: {
 			title: 'Forbidden',
 			snippet: `$ access --resolve
-→ checking permissions...
-✗ insufficient privileges
-✗ this resource is off-limits`
+> checking permissions...
+x insufficient privileges
+x this resource is off-limits`
 		},
 		404: {
 			title: 'Not Found',
 			snippet: `$ route --lookup "{page.url.pathname}"
-→ scanning routes...
-✗ no match found
-✗ the page you're looking for doesn't exist`
+> scanning routes...
+x no match found
+x the page you're looking for doesn't exist`
 		},
 		405: {
 			title: 'Method Not Allowed',
 			snippet: `$ method --validate
-→ checking allowed methods...
-✗ request method not supported
-✗ use an allowed method instead`
+> checking allowed methods...
+x request method not supported
+x use an allowed method instead`
 		},
 		408: {
 			title: 'Request Timeout',
 			snippet: `$ request --await
-→ waiting for response...
-✗ connection timed out
-✗ server did not receive a complete request`
+> waiting for response...
+x connection timed out
+x server did not receive a complete request`
 		},
 		429: {
 			title: 'Too Many Requests',
 			snippet: `$ rate-limit --check
-→ analyzing request frequency...
-✗ rate limit exceeded
-✗ slow down and try again later`
+> analyzing request frequency...
+x rate limit exceeded
+x slow down and try again later`
 		},
 		500: {
 			title: 'Internal Server Error',
 			snippet: `$ server --diagnose
-→ running health check...
-✗ unexpected condition
-✗ the server encountered an error`
+> running health check...
+x unexpected condition
+x the server encountered an error`
 		},
 		502: {
 			title: 'Bad Gateway',
 			snippet: `$ gateway --ping
-→ upstream communication...
-✗ invalid response
-✗ the gateway received an invalid response`
+> upstream communication...
+x invalid response
+x the gateway received an invalid response`
 		},
 		503: {
 			title: 'Service Unavailable',
 			snippet: `$ service --status
-→ checking availability...
-✗ server temporarily overloaded
-✗ try again in a moment`
+> checking availability...
+x server temporarily overloaded
+x try again in a moment`
 		},
 		504: {
 			title: 'Gateway Timeout',
 			snippet: `$ gateway --await
-→ waiting for upstream...
-✗ response took too long
-✗ connection timed out`
+> waiting for upstream...
+x response took too long
+x connection timed out`
 		}
 	};
 
@@ -87,15 +87,15 @@
 		errorMessages[status] ?? {
 			title: 'Error',
 			snippet: `$ error --inspect
-→ analyzing fault...
-✗ status: ${status}
-✗ ${message}`
+> analyzing fault...
+x status: ${status}
+x ${message}`
 		}
 	);
 </script>
 
 <svelte:head>
-	<title>{status} — {errorInfo.title}</title>
+	<title>{status} - {errorInfo.title}</title>
 	<meta name="description" content="{status} {errorInfo.title}" />
 	<meta name="robots" content="noindex, nofollow" />
 </svelte:head>
@@ -118,8 +118,9 @@
 	</section>
 
 	<section class="error-suggestions">
-		<p class="section-eyebrow">Quick Links</p>
-		<h2 class="section-title">Maybe you were looking for</h2>
+		<div class="section-intro">
+			<h2>Maybe you were looking for</h2>
+		</div>
 
 		<div class="suggestions-grid">
 			<a class="suggestion-card" href="/">
@@ -160,8 +161,10 @@
 		margin: 0 auto;
 		display: grid;
 		gap: 4rem;
-		min-height: calc(100vh - 10rem);
+		width: min(1060px, calc(100% - 2rem));
+		min-height: calc(100dvh - 10rem);
 		align-content: center;
+		padding: 4rem 0;
 	}
 
 	.error-hero {
@@ -180,9 +183,7 @@
 
 	.error-eyebrow {
 		font-size: 0.82rem;
-		letter-spacing: 0.11em;
-		text-transform: uppercase;
-		color: rgba(240, 120, 120, 0.9);
+		color: var(--accent);
 		font-weight: 600;
 	}
 
@@ -191,7 +192,7 @@
 		line-height: 1.1;
 		letter-spacing: -0.035em;
 		font-weight: 700;
-		color: #f0f3fa;
+		color: var(--text);
 		margin: 0;
 	}
 
@@ -202,18 +203,18 @@
 	.error-snippet pre {
 		margin: 0;
 		padding: 1rem 1.25rem;
-		background: rgba(0, 0, 0, 0.35);
-		border: 1px solid rgba(140, 165, 220, 0.1);
-		border-radius: 0.75rem;
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
 		overflow-x: auto;
 		max-width: 55ch;
 	}
 
 	.error-snippet code {
-		font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;
+		font-family: var(--mono);
 		font-size: 0.78rem;
 		line-height: 1.8;
-		color: rgba(200, 210, 230, 0.55);
+		color: var(--muted);
 		white-space: pre;
 	}
 
@@ -226,10 +227,10 @@
 	}
 
 	.error-code {
-		font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;
+		font-family: var(--mono);
 		font-size: clamp(6rem, 20vw, 12rem);
 		font-weight: 800;
-		color: rgba(240, 120, 120, 0.08);
+		color: color-mix(in srgb, var(--accent) 14%, transparent);
 		line-height: 1;
 		position: absolute;
 		user-select: none;
@@ -241,11 +242,11 @@
 		height: 300px;
 		background: radial-gradient(
 			ellipse at center,
-			rgba(240, 120, 120, 0.08) 0%,
-			rgba(240, 120, 120, 0.03) 40%,
+			color-mix(in srgb, var(--accent) 14%, transparent) 0%,
+			color-mix(in srgb, var(--accent) 6%, transparent) 40%,
 			transparent 70%
 		);
-		border-radius: 50%;
+		border-radius: var(--radius);
 		position: absolute;
 		animation: pulse-glow 4s ease-in-out infinite;
 	}
@@ -276,9 +277,9 @@
 		position: relative;
 		overflow: hidden;
 		padding: 1.25rem;
-		border-radius: 1rem;
-		background: rgba(255, 255, 255, 0.025);
-		border: 1px solid rgba(140, 165, 220, 0.1);
+		border-radius: var(--radius);
+		background: var(--surface);
+		border: 1px solid var(--border);
 		display: grid;
 		grid-template-columns: auto 1fr;
 		gap: 1rem;
@@ -299,7 +300,7 @@
 		top: 0;
 		bottom: 0;
 		width: 3px;
-		background: rgba(150, 180, 240, 0.55);
+		background: var(--accent);
 		border-radius: 3px 0 0 3px;
 		transform: scaleY(0);
 		transform-origin: bottom;
@@ -307,11 +308,9 @@
 	}
 
 	.suggestion-card:hover {
-		border-color: rgba(160, 185, 230, 0.28);
-		background: rgba(255, 255, 255, 0.03);
-		box-shadow:
-			0 0 0 1px rgba(150, 180, 240, 0.04),
-			0 8px 32px rgba(0, 0, 0, 0.28);
+		border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+		background: var(--surface-soft);
+		box-shadow: var(--shadow);
 	}
 
 	.suggestion-card:hover::before {
@@ -319,17 +318,17 @@
 	}
 
 	.suggestion-card:hover .suggestion-name {
-		color: #fff;
+		color: var(--text);
 	}
 
 	.suggestion-card:hover .suggestion-desc {
-		color: rgba(200, 210, 230, 0.7);
+		color: var(--muted);
 	}
 
 	.suggestion-num {
-		font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;
+		font-family: var(--mono);
 		font-size: 0.8rem;
-		color: rgba(150, 180, 240, 0.4);
+		color: var(--accent);
 		font-weight: 600;
 		letter-spacing: 0.12em;
 	}
@@ -343,14 +342,14 @@
 	.suggestion-name {
 		font-size: 0.95rem;
 		font-weight: 620;
-		color: #e8ecf4;
+		color: var(--text);
 		transition: color 140ms ease;
 	}
 
 	.suggestion-desc {
 		font-size: 0.85rem;
 		line-height: 1.5;
-		color: rgba(200, 210, 230, 0.45);
+		color: var(--muted);
 		margin: 0;
 		transition: color 140ms ease;
 	}
