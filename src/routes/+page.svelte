@@ -1,4 +1,28 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
+	type Theme = 'dark' | 'light';
+
+	let theme: Theme = 'dark';
+
+	const setTheme = (nextTheme: Theme) => {
+		theme = nextTheme;
+
+		if (typeof document !== 'undefined') {
+			document.documentElement.dataset.theme = nextTheme;
+			document.documentElement.style.colorScheme = nextTheme;
+		}
+
+		if (typeof localStorage !== 'undefined') {
+			localStorage.setItem('portfolio-theme', nextTheme);
+		}
+	};
+
+	onMount(() => {
+		const currentTheme = document.documentElement.dataset.theme;
+		setTheme(currentTheme === 'light' ? 'light' : 'dark');
+	});
+
 	const heroCopy =
 		'I build production APIs, internal tools, and native-adjacent UI work with Go, .NET, Svelte, and Rust.';
 
@@ -208,17 +232,30 @@
 <a class="skip-link" href="#main">Skip to content</a>
 
 <header class="site-nav" aria-label="Primary navigation">
-	<a class="brand-lockup" href="#main" aria-label="Berat Hündürel home">
-		<span class="brand-mark">BH</span>
-		<span class="brand-text">Berat Hündürel</span>
-	</a>
+	<div class="nav-left">
+		<a class="brand-lockup" href="#main" aria-label="Berat Hündürel home">
+			<span class="brand-mark">BH</span>
+			<span class="brand-text">Berat Hündürel</span>
+		</a>
+	</div>
 	<nav class="nav-links" aria-label="Sections">
 		<a href="#experience">Experience</a>
 		<a href="#open-source">Open source</a>
 		<a href="#projects">Projects</a>
 		<a href="#skills">Skills</a>
 	</nav>
-	<a class="nav-cta" href="mailto:berat.hundurel@hotmail.com">Email</a>
+	<div class="nav-actions">
+		<button
+			class="theme-toggle"
+			type="button"
+			aria-label={theme === 'dark' ? 'Use day theme' : 'Use night theme'}
+			title={theme === 'dark' ? 'Day theme' : 'Night theme'}
+			onclick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+		>
+			<span aria-hidden="true">{theme === 'dark' ? '☼' : '☾'}</span>
+		</button>
+		<a class="nav-cta" href="mailto:berat.hundurel@hotmail.com">Email</a>
+	</div>
 </header>
 
 <main id="main" class="page-shell">
