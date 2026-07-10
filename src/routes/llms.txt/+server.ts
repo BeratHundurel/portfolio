@@ -28,7 +28,7 @@ export const GET: RequestHandler = ({ url }) => {
 
 ### Printomi (Nov 2024 - Present)
 Full Stack Engineer (Contract) - Istanbul
-Startup focused on intelligent printing infrastructure and technology solutions.
+Printing software for customers, shops, and production workflows.
 - Built REST APIs for mobile users and shop operations
 - Implemented RabbitMQ workflows for distributed print jobs
 - Maintained PostgreSQL, Docker, IIS, CUPS, and IPP integrations
@@ -38,7 +38,7 @@ Startup focused on intelligent printing infrastructure and technology solutions.
 Full Stack Engineer - Maslak, Istanbul
 Digital agency delivering e-commerce and marketing solutions.
 - Built and maintained production web applications with .NET
-- Improved Core Web Vitals by more than 50% in high-impact scenarios
+- Improved Core Web Vitals by more than 50% on key e-commerce pages
 - Worked with SQL Server and EF Core using a database-first approach
 - Mentored junior developers through reviews and debugging sessions
 

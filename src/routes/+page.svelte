@@ -24,7 +24,7 @@
 	});
 
 	const heroCopy =
-		'I build production APIs, internal tools, and native-adjacent UI work with Go, .NET, Svelte, and Rust.';
+		'I build APIs, internal tools, web interfaces, and desktop software with Go, .NET, Svelte, and Rust.';
 
 	const quickStats = [
 		{
@@ -36,7 +36,7 @@
 		{
 			label: 'Main stack',
 			value: 'Go / .NET / Svelte',
-			detail: 'Backend systems with sharp interfaces'
+			detail: 'APIs, web apps, and internal tools'
 		}
 	];
 
@@ -86,7 +86,7 @@
 			url: 'https://github.com/longbridge/gpui-component/pull/2397'
 		},
 		{
-			title: 'Interaction polish',
+			title: 'Sidebar, menu, and rendering fixes',
 			detail:
 				'Improved sidebar toggling, popup menu sizing, highlighter empty-range handling, and GPUI BoxShadow compatibility.',
 			pr: '4 PRs',
@@ -204,7 +204,7 @@
 			role: 'Full Stack Engineer, Contract',
 			period: 'Nov 2024 - Present',
 			location: 'Istanbul',
-			summary: 'Startup focused on intelligent printing infrastructure and technology solutions.',
+			summary: 'Printing software for customers, shops, and production workflows.',
 			items: [
 				'Built REST APIs for mobile users and shop operations.',
 				'Implemented RabbitMQ workflows for distributed print jobs.',
@@ -221,7 +221,7 @@
 			summary: 'Digital agency delivering e-commerce and marketing solutions.',
 			items: [
 				'Built and maintained production web applications with .NET.',
-				'Improved Core Web Vitals by more than 50% in high-impact scenarios.',
+				'Improved Core Web Vitals by more than 50% on key e-commerce pages.',
 				'Worked with SQL Server and EF Core using a database-first approach.',
 				'Mentored junior developers through reviews and debugging sessions.'
 			]
@@ -262,7 +262,7 @@
 	<section class="hero" aria-labelledby="hero-title">
 		<div class="hero-copy-block">
 			<p class="role-line">Full-stack engineer</p>
-			<h1 id="hero-title">Production APIs. Polished UI.</h1>
+			<h1 id="hero-title">Backend-first, across the stack.</h1>
 			<p class="hero-copy">{heroCopy}</p>
 			<div class="hero-actions" aria-label="Primary actions">
 				<a
@@ -289,7 +289,7 @@
 			</div>
 			<div class="profile-card">
 				<p class="profile-name">Berat Hündürel</p>
-				<p class="profile-detail">Currently building production software at Printomi.</p>
+				<p class="profile-detail">Building printing infrastructure and internal tools at Printomi.</p>
 				<a
 					class="profile-link"
 					href="https://www.linkedin.com/in/berat-h%C3%BCnd%C3%BCrel-1197b9253"
@@ -318,10 +318,10 @@
 		aria-labelledby="experience-title"
 	>
 		<div class="section-intro">
-			<h2 id="experience-title">Experience that spans systems and surfaces.</h2>
+			<h2 id="experience-title">Work experience.</h2>
 			<p>
-				I work closest to backend services, but I stay accountable for the interfaces, operations,
-				and deployment paths around them.
+				I mainly build backend services, but I also work on the UI, infrastructure, and deployment
+				needed to run them.
 			</p>
 		</div>
 
@@ -353,8 +353,8 @@
 		<div class="section-intro">
 			<h2 id="oss-title">Open-source work in GPUI Component.</h2>
 			<p>
-				I contributed merged improvements to Longbridge's Rust component library for GPUI-powered
-				cross-platform desktop applications.
+				I've had seven pull requests merged into Longbridge's Rust component library, covering
+				text selection, rendering performance, and UI fixes.
 			</p>
 		</div>
 
@@ -403,8 +403,7 @@
 		<div class="section-intro">
 			<h2 id="projects-title">Selected projects.</h2>
 			<p>
-				Personal work where I test small systems, editor tooling, terminal interfaces, desktop UI,
-				and Go service patterns.
+				Side projects spanning editor themes, terminal tools, desktop apps, and Go services.
 			</p>
 		</div>
 
@@ -437,8 +436,8 @@
 		<div class="section-intro compact">
 			<h2 id="skills-title">Tools I reach for.</h2>
 			<p>
-				My default lane is backend-heavy full-stack work, with enough frontend and infrastructure
-				ownership to keep delivery practical.
+				I work mostly with Go and .NET, with Svelte or React on the frontend and Docker and CI for
+				delivery.
 			</p>
 		</div>
 

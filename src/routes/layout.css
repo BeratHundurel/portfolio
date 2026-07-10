@@ -14,6 +14,7 @@
 	--border-strong: rgba(243, 244, 236, 0.25);
 	--accent: #9bd8aa;
 	--accent-soft: rgba(155, 216, 170, 0.12);
+	--profile-glow: rgba(155, 216, 170, 0.1);
 	--accent-text: #0d160f;
 	--grid-line: rgba(243, 244, 236, 0.055);
 	--grain-opacity: 0.28;
@@ -47,10 +48,21 @@
 	--border-strong: rgba(17, 20, 15, 0.28);
 	--accent: #2c7552;
 	--accent-soft: rgba(44, 117, 82, 0.11);
+	--profile-glow: rgba(44, 117, 82, 0.16);
 	--accent-text: #f8fff9;
 	--grid-line: rgba(17, 20, 15, 0.055);
 	--grain-opacity: 0.14;
 	--shadow: 0 14px 36px rgba(33, 43, 28, 0.075);
+	--section-wash: linear-gradient(
+		90deg,
+		color-mix(in srgb, var(--accent-soft) 52%, transparent),
+		transparent 48%
+	);
+	--section-wash-hover: linear-gradient(
+		90deg,
+		color-mix(in srgb, var(--accent-soft) 72%, transparent),
+		transparent 54%
+	);
 }
 
 * {
@@ -492,30 +504,61 @@ h1 {
 }
 
 .profile-card {
-	display: grid;
-	gap: 0.4rem;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	overflow: hidden;
 	width: min(100%, 280px);
-	padding: 0.8rem;
+	padding: 1rem;
 	border: 1px solid var(--border);
 	border-radius: var(--radius);
-	background: color-mix(in srgb, var(--surface) 82%, transparent);
-	box-shadow: 0 10px 34px color-mix(in srgb, var(--text) 5%, transparent);
+	background:
+		radial-gradient(circle at 100% 0%, var(--profile-glow), transparent 44%),
+		color-mix(in srgb, var(--surface) 88%, transparent);
+	box-shadow: var(--shadow);
+}
+
+.profile-card::before {
+	width: 2.75rem;
+	height: 2px;
+	margin-bottom: 0.9rem;
+	background: var(--accent);
+	content: '';
 }
 
 .profile-name {
 	color: var(--text);
+	font-size: 1rem;
 	font-weight: 760;
 	line-height: 1.2;
 }
 
 .profile-detail {
+	max-width: 26ch;
+	margin-top: 1rem;
 	font-size: 0.95rem;
+	line-height: 1.65;
+	text-wrap: pretty;
 }
 
 .profile-link {
-	justify-self: start;
-	padding: 0.35rem 0.45rem;
-	margin-left: -0.45rem;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	padding: 0.85rem 0 0;
+	margin-top: 1rem;
+	border-top: 1px solid var(--border);
+	border-radius: 0;
+}
+
+.profile-link::after {
+	content: '↗';
+	font-weight: 500;
+}
+
+.profile-link:hover {
+	background: transparent;
 }
 
 .signal-strip {
@@ -1045,6 +1088,22 @@ code {
 
 	.skill-card:nth-child(-n + 4) {
 		border-bottom: 1px solid var(--border);
+	}
+}
+
+@media (min-width: 761px) and (max-width: 980px) {
+	.hero-profile {
+		grid-template-columns: minmax(0, 1fr) minmax(13.5rem, 0.55fr);
+		gap: 0.75rem;
+	}
+
+	.profile-card {
+		padding: clamp(1rem, 2.6vw, 1.35rem);
+	}
+
+	.profile-detail {
+		max-width: 19ch;
+		margin-top: auto;
 	}
 }
 
