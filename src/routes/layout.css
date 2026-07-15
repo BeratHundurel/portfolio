@@ -16,7 +16,11 @@
 	--accent-soft: rgba(155, 216, 170, 0.12);
 	--profile-glow: rgba(155, 216, 170, 0.1);
 	--accent-text: #0d160f;
-	--grid-line: rgba(243, 244, 236, 0.055);
+	--ambient-primary: rgba(105, 166, 122, 0.14);
+	--ambient-secondary: rgba(204, 215, 180, 0.06);
+	--contour-line: rgba(155, 216, 170, 0.09);
+	--signal-node: rgba(196, 232, 202, 0.22);
+	--field-opacity: 0.78;
 	--grain-opacity: 0.28;
 	--shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
 	--section-wash: linear-gradient(
@@ -50,7 +54,11 @@
 	--accent-soft: rgba(44, 117, 82, 0.11);
 	--profile-glow: rgba(44, 117, 82, 0.16);
 	--accent-text: #f8fff9;
-	--grid-line: rgba(17, 20, 15, 0.055);
+	--ambient-primary: rgba(44, 117, 82, 0.13);
+	--ambient-secondary: rgba(143, 126, 92, 0.08);
+	--contour-line: rgba(44, 117, 82, 0.1);
+	--signal-node: rgba(44, 117, 82, 0.28);
+	--field-opacity: 0.62;
 	--grain-opacity: 0.14;
 	--shadow: 0 14px 36px rgba(33, 43, 28, 0.075);
 	--section-wash: linear-gradient(
@@ -74,18 +82,49 @@ html {
 }
 
 body {
+	position: relative;
+	isolation: isolate;
 	margin: 0;
 	min-width: 320px;
 	min-height: 100dvh;
 	font-family: var(--sans);
 	color: var(--text);
 	background:
-		linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
-		linear-gradient(var(--grid-line) 1px, transparent 1px), var(--bg);
-	background-size: 48px 48px;
+		radial-gradient(circle at 13% -4%, var(--ambient-primary), transparent 32rem),
+		radial-gradient(circle at 92% 31%, var(--ambient-secondary), transparent 28rem),
+		linear-gradient(180deg, color-mix(in srgb, var(--bg-soft) 42%, transparent), transparent 28rem),
+		var(--bg);
+	background-attachment: fixed;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+body::after {
+	position: fixed;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+	content: '';
+	opacity: var(--field-opacity);
+	background:
+		radial-gradient(circle at 12% 10%, var(--signal-node) 0 2px, transparent 3px),
+		radial-gradient(circle at 76% 24%, var(--signal-node) 0 1px, transparent 2px),
+		radial-gradient(circle at 91% 47%, var(--signal-node) 0 2px, transparent 3px),
+		repeating-radial-gradient(
+			ellipse at 7% -9%,
+			transparent 0 4.4rem,
+			var(--contour-line) 4.45rem 4.5rem,
+			transparent 4.55rem 7.35rem
+		),
+		repeating-radial-gradient(
+			ellipse at 109% 44%,
+			transparent 0 6.6rem,
+			var(--contour-line) 6.65rem 6.7rem,
+			transparent 6.75rem 11.5rem
+		);
+	-webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.8) 42%, transparent 82%);
+	mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.8) 42%, transparent 82%);
 }
 
 body::before {
@@ -176,20 +215,28 @@ p {
 
 .site-nav {
 	position: sticky;
-	top: 0;
+	top: 0.75rem;
 	z-index: 50;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	gap: 1rem;
 	width: min(1180px, calc(100% - 2rem));
-	height: 72px;
+	height: 64px;
 	margin: 0 auto;
-	border-bottom: 1px solid var(--border);
-	background: color-mix(in srgb, var(--bg) 88%, transparent);
-	backdrop-filter: blur(18px);
-	-webkit-backdrop-filter: blur(18px);
-	padding: 0.5rem;
+	border: 1px solid var(--border);
+	border-radius: calc(var(--radius) + 6px);
+	background: linear-gradient(
+		125deg,
+		color-mix(in srgb, var(--surface) 72%, transparent),
+		color-mix(in srgb, var(--bg) 48%, transparent)
+	);
+	box-shadow:
+		inset 0 1px 0 color-mix(in srgb, var(--text) 7%, transparent),
+		0 16px 44px color-mix(in srgb, var(--bg) 32%, transparent);
+	backdrop-filter: blur(22px) saturate(1.12);
+	-webkit-backdrop-filter: blur(22px) saturate(1.12);
+	padding: 0.75rem;
 }
 
 .brand-lockup,
@@ -1109,6 +1156,7 @@ code {
 
 @media (max-width: 760px) {
 	.site-nav {
+		top: 0.5rem;
 		width: min(100% - 1rem, 1180px);
 		height: 64px;
 		grid-template-columns: auto auto;
