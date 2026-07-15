@@ -40,6 +40,41 @@
 		}
 	];
 
+	const freelanceProjects = [
+		{
+			name: 'Draftlane',
+			category: 'SaaS product website',
+			description:
+				'A focused product site for a feedback and approval platform, built around one clear conversion path.',
+			image: '/freelance-work/saas.png',
+			width: 1265,
+			height: 712,
+			alt: 'Draftlane SaaS concept website homepage',
+			url: 'https://saas.berathundurel.com/',
+			featured: true
+		},
+		{
+			name: 'Cairn Build Co.',
+			category: 'Construction website',
+			description: 'A direct, confident site for a residential construction company.',
+			image: '/freelance-work/construction.png',
+			width: 375,
+			height: 811,
+			alt: 'Cairn Build Co. construction concept website homepage',
+			url: 'https://construction.berathundurel.com/en'
+		},
+		{
+			name: 'Haven Dental Studio',
+			category: 'Healthcare website',
+			description: 'A calm, welcoming site for a modern dental practice.',
+			image: '/freelance-work/dental.png',
+			width: 375,
+			height: 811,
+			alt: 'Haven Dental Studio concept website homepage',
+			url: 'https://dental.berathundurel.com/en'
+		}
+	];
+
 	const technicalSkills = [
 		{
 			label: 'Languages',
@@ -289,7 +324,9 @@
 			</div>
 			<div class="profile-card">
 				<p class="profile-name">Berat Hündürel</p>
-				<p class="profile-detail">Building printing infrastructure and internal tools at Printomi.</p>
+				<p class="profile-detail">
+					Building printing infrastructure and internal tools at Printomi.
+				</p>
 				<a
 					class="profile-link"
 					href="https://www.linkedin.com/in/berat-h%C3%BCnd%C3%BCrel-1197b9253"
@@ -349,12 +386,57 @@
 		</div>
 	</section>
 
+	<section
+		id="freelance-work"
+		class="section-block freelance-section"
+		aria-labelledby="freelance-title"
+	>
+		<div class="section-intro">
+			<h2 id="freelance-title">Need a website for your business?</h2>
+			<p>
+				I also take on freelance web projects. These concept builds show how I approach SaaS,
+				construction, and healthcare websites.
+			</p>
+		</div>
+
+		<div class="web-work-grid">
+			{#each freelanceProjects as project (project.name)}
+				<a
+					class="web-work-card"
+					class:featured={project.featured}
+					href={project.url}
+					target="_blank"
+					rel="noreferrer"
+				>
+					<div class="web-work-media">
+						<img
+							src={project.image}
+							width={project.width}
+							height={project.height}
+							loading="lazy"
+							decoding="async"
+							alt={project.alt}
+						/>
+					</div>
+					<div class="web-work-copy">
+						<div>
+							<p class="web-work-type">{project.category}</p>
+							<h3>{project.name}</h3>
+						</div>
+						<p>{project.description}</p>
+						<span class="web-work-link">View live site <span aria-hidden="true">↗</span></span>
+					</div>
+				</a>
+			{/each}
+		</div>
+	</section>
+
 	<section id="open-source" class="section-block oss-section" aria-labelledby="oss-title">
 		<div class="section-intro">
 			<h2 id="oss-title">Open-source work in GPUI Component.</h2>
 			<p>
-				I've had seven pull requests merged into Longbridge's Rust component library, covering
-				text selection, rendering performance, and UI fixes.
+				I've had seven pull requests merged into Longbridge's Rust component library, covering text
+				selection, rendering performance, and UI fixes.
 			</p>
 		</div>
 
@@ -402,9 +484,7 @@
 	<section id="projects" class="section-block projects-section" aria-labelledby="projects-title">
 		<div class="section-intro">
 			<h2 id="projects-title">Selected projects.</h2>
-			<p>
-				Side projects spanning editor themes, terminal tools, desktop apps, and Go services.
-			</p>
+			<p>Side projects spanning editor themes, terminal tools, desktop apps, and Go services.</p>
 		</div>
 
 		<div class="projects-grid">
