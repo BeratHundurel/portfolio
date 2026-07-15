@@ -92,7 +92,7 @@
 	/>
 	<meta name="twitter:image" content="https://berathundurel.com/og-image.png" />
 	<meta name="twitter:image:alt" content="Berat Hündürel - Full-Stack Engineer portfolio preview" />
-	<svelte:element this={'script'} type="application/ld+json">{personSchemaJson}</svelte:element>
+	<svelte:element this={"script"} type="application/ld+json">{personSchemaJson}</svelte:element>
 </svelte:head>
 
 {@render children()}
