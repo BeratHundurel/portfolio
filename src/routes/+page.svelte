@@ -47,6 +47,7 @@
 			description:
 				'A focused product site for a feedback and approval platform, built around one clear conversion path.',
 			image: '/freelance-work/saas.png',
+			singleColumnImage: undefined,
 			width: 1265,
 			height: 712,
 			alt: 'Draftlane SaaS concept website homepage',
@@ -58,6 +59,7 @@
 			category: 'Construction website',
 			description: 'A direct, confident site for a residential construction company.',
 			image: '/freelance-work/construction.png',
+			singleColumnImage: '/freelance-work/construction-wide.png',
 			width: 375,
 			height: 811,
 			alt: 'Cairn Build Co. construction concept website homepage',
@@ -68,6 +70,7 @@
 			category: 'Healthcare website',
 			description: 'A calm, welcoming site for a modern dental practice.',
 			image: '/freelance-work/dental.png',
+			singleColumnImage: '/freelance-work/dental-wide.png',
 			width: 375,
 			height: 811,
 			alt: 'Haven Dental Studio concept website homepage',
@@ -409,14 +412,19 @@
 					rel="noreferrer"
 				>
 					<div class="web-work-media">
-						<img
-							src={project.image}
-							width={project.width}
-							height={project.height}
-							loading="lazy"
-							decoding="async"
-							alt={project.alt}
-						/>
+						<picture>
+							{#if project.singleColumnImage}
+								<source media="(max-width: 760px)" srcset={project.singleColumnImage} />
+							{/if}
+							<img
+								src={project.image}
+								width={project.width}
+								height={project.height}
+								loading="lazy"
+								decoding="async"
+								alt={project.alt}
+							/>
+						</picture>
 					</div>
 					<div class="web-work-copy">
 						<div>
