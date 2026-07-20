@@ -22,7 +22,7 @@ export const GET: RequestHandler = ({ url }) => {
 - Frontend: React, Next.js, Svelte
 - Databases: Microsoft SQL Server, PostgreSQL
 - Infrastructure: Docker, IIS, GitHub Actions, Testcontainers, CUPS
-- Open Source: 7 merged PRs to longbridge/gpui-component between Apr 24 and Jun 11, 2026
+- Open Source: 8 merged PRs to longbridge/gpui-component between Apr 24 and Jul 13, 2026
 
 ## Experience
 
@@ -44,6 +44,7 @@ Digital agency delivering e-commerce and marketing solutions.
 
 ## Open Source
 
+- longbridge/gpui-component PR #2557: language-aware highlighting for fenced Markdown code blocks
 - longbridge/gpui-component PR #2457: highlighter empty range style leak fix
 - longbridge/gpui-component PR #2408: native multi-click selection in TextView
 - longbridge/gpui-component PR #2402: GPUI BoxShadow inset compatibility

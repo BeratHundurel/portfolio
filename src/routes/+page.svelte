@@ -32,7 +32,7 @@
 			value: 'Printomi',
 			detail: 'Printing infrastructure and operations tools'
 		},
-		{ label: 'Open source', value: '7 merged PRs', detail: 'gpui-component, Apr-Jun 2026' },
+		{ label: 'Open source', value: '8 merged PRs', detail: 'gpui-component, Apr-Jul 2026' },
 		{
 			label: 'Main stack',
 			value: 'Go / .NET / Svelte',
@@ -110,11 +110,11 @@
 			url: 'https://github.com/longbridge/gpui-component/pull/2408'
 		},
 		{
-			title: 'Markdown rendering performance',
+			title: 'Markdown highlighting & performance',
 			detail:
-				'Cached syntax highlighters and made code block styling lazier to reduce repeated work during markdown rendering.',
-			pr: 'PR #2400',
-			url: 'https://github.com/longbridge/gpui-component/pull/2400'
+				'Added language-aware highlighting for fenced code blocks and reused lazy syntax queries to keep Markdown rendering fast.',
+			pr: '2 PRs',
+			url: 'https://github.com/longbridge/gpui-component/pull/2557'
 		},
 		{
 			title: 'Segmented tabs stability',
@@ -133,6 +133,12 @@
 	];
 
 	const gpuiPullRequests = [
+		{
+			number: '#2557',
+			title: 'highlighter: Highlight fenced code blocks in Markdown source',
+			merged: 'Jul 13, 2026',
+			url: 'https://github.com/longbridge/gpui-component/pull/2557'
+		},
 		{
 			number: '#2457',
 			title: 'highlighter: prevent empty range style leaks',
@@ -443,8 +449,8 @@
 		<div class="section-intro">
 			<h2 id="oss-title">Open-source work in GPUI Component.</h2>
 			<p>
-				I've had seven pull requests merged into Longbridge's Rust component library, covering text
-				selection, rendering performance, and UI fixes.
+				I've had eight pull requests merged into Longbridge's Rust component library, covering text
+				selection, syntax highlighting, rendering performance, and UI fixes.
 			</p>
 		</div>
 
